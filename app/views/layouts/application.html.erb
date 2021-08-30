@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App</title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csp_meta_tag %>
+  </head>
+
+  <body>
+  <%#ログイン・ログアウト機能%> 
+    
+  <div id="nav">
+   <% if current_user %>
+    <%= link_to "Edit Profile", edit_user_path(current_user_id) %>
+    <%= link_to "Logout", :logout,method: :post %>
+   <% else %>
+    <%= link_to "Register" , new_user_path %>
+    <%= link_to "Login", :login %>
+   <% end %>
+  </div>
+  <div>
+    <p id="notice"><%= flash[:notice] %></p>
+    <p id="alert"><%= flash[:alert] %></p>
+  </div>
+    <%= yield %>
+  
+  </body>
+</html>
