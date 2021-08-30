@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "App",
+=======
+  "name": "AppName",
+>>>>>>> origin/master
   "private": true,
   "dependencies": {}
 }

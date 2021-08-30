@@ -47,6 +47,7 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+<<<<<<< HEAD
     autoprefixer-rails (10.2.5.1)
       execjs (> 0)
     bcrypt (3.1.16)
@@ -58,6 +59,12 @@ GEM
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
+=======
+    bcrypt (3.1.16)
+    bindex (0.8.1)
+    bootsnap (1.8.0)
+      msgpack (~> 1.0)
+>>>>>>> origin/master
     builder (3.2.4)
     byebug (11.1.3)
     capybara (3.35.3)
@@ -72,7 +79,10 @@ GEM
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+<<<<<<< HEAD
     coderay (1.1.3)
+=======
+>>>>>>> origin/master
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -82,7 +92,10 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+<<<<<<< HEAD
     debug_inspector (1.1.0)
+=======
+>>>>>>> origin/master
     erubi (1.10.0)
     execjs (2.8.1)
     faraday (1.7.0)
@@ -132,7 +145,11 @@ GEM
     multipart-post (2.1.1)
     mysql2 (0.5.3)
     nio4r (2.5.8)
+<<<<<<< HEAD
     nokogiri (1.12.4-x86_64-linux)
+=======
+    nokogiri (1.12.3-x86_64-linux)
+>>>>>>> origin/master
       racc (~> 1.4)
     oauth (0.5.6)
     oauth2 (1.4.7)
@@ -141,6 +158,7 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
+<<<<<<< HEAD
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -155,6 +173,8 @@ GEM
     pry-stack_explorer (0.6.1)
       binding_of_caller (~> 1.0)
       pry (~> 0.13)
+=======
+>>>>>>> origin/master
     public_suffix (4.0.6)
     puma (3.12.6)
     racc (1.5.2)
@@ -204,8 +224,11 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+<<<<<<< HEAD
     sassc (2.4.0)
       ffi (~> 1.9)
+=======
+>>>>>>> origin/master
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -244,14 +267,20 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+<<<<<<< HEAD
     yard (0.9.26)
+=======
+>>>>>>> origin/master
 
 PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
+<<<<<<< HEAD
   bootstrap-sass
+=======
+>>>>>>> origin/master
   byebug
   capybara (>= 2.15)
   chromedriver-helper
@@ -259,10 +288,13 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4, < 0.6.0)
+<<<<<<< HEAD
   pry-byebug
   pry-doc
   pry-rails
   pry-stack_explorer
+=======
+>>>>>>> origin/master
   puma (~> 3.11)
   rails (~> 5.2.6)
   sass-rails (~> 5.0)

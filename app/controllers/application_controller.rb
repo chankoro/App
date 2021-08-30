@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+<<<<<<< HEAD
 #ログアウト後のユーザ編集ができないようにする
   before_action :require_login
 end
@@ -11,3 +12,6 @@ end
    
 
 
+=======
+end
+>>>>>>> origin/master
