@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
   before_action :set_user, only: %i[ show edit update destroy ]
   
   #新規登録のユーザー認証をなくす
@@ -76,28 +75,3 @@ class UsersController < ApplicationController
       params.require(:user).permit(:email, :password, :password_confirmation)
     end
 end
-=======
-
- def new
-  @user = User.new
- end
- 
- def create
-  @user = User.new(user_params)
-  if @user.save
-   redirect_to login_path
-   flash[:notice] = 'ユーザーの作成に成功しました'
-  else
-   flash.now[:alert] = 'ユーザーの作成に失敗しました'
-   render :new
-  end
- end
- 
- 
-private
- 
- def users_params
-   params.require(:user).permit(:email, :password, :password_confirmation)
-  end
-end
->>>>>>> origin/master
