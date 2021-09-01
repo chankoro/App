@@ -1,13 +1,13 @@
 class ApplicationController < ActionController::Base
-#ログアウト後のユーザ編集ができないようにする
+#ログインを催促する
   before_action :require_login
-end
+　add_flash_types :success, :info, :warning, :danger　
 
-#ログアウトユーザーから保護。ログアウト中にユーザーを編集し、拒否されてログインフォームにログインすると、自動的に編集ページに移動
-  private
+private
+#ログインしていなかったらrequire_loginの中で作動する
   def not_authenticated
     redirect_to login_path, alert: "Please Login first"
   end
-   
+ end
 
 

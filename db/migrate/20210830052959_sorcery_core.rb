@@ -8,6 +8,7 @@ class SorceryCore < ActiveRecord::Migration[5.2]
       t.timestamps                null: false
     end
 
+  #Emailの重複を許さないため unique :true
     add_index :users, :email, unique: true
   end
 end

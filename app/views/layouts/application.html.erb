@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-<<<<<<< HEAD
     <title>App</title>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
@@ -13,7 +12,7 @@
     
   <div id="nav">
    <% if current_user %>
-    <%= link_to "Edit Profile", edit_user_path(current_user_id) %>
+    <%= link_to "Edit Profile", edit_user_path(current_user) %>
     <%= link_to "Logout", :logout,method: :post %>
    <% else %>
     <%= link_to "Register" , new_user_path %>
@@ -26,17 +25,5 @@
   </div>
     <%= yield %>
   
-=======
-    <title>AppName</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
->>>>>>> origin/master
   </body>
 </html>
