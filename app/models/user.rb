@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
 
+#Family modelの下にUser modelが存在する。
+  belongs_to :family
 end
