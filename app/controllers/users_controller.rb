@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
+    
     if @user.save
       redirect_to login_path
       flash[:notice] =  "ユーザー作成に成功しました"
@@ -20,8 +21,8 @@ class UsersController < ApplicationController
   end
 
   private #ストロングパラメーターでpassとpass confirm
-  
+  #param is missing or the value is empty: userが発生したためrequire(:user)を削除
      def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.permit(:email, :password, :password_confirmation)
      end
 end
