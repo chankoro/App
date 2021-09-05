@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1>ユーザー登録</h1>
+      <%=#familyよりuserが下にあるからfamilyの中にuserが入るようにしている。 %>
       <%= form_with modle: @user, local: true do |f| %>
        <div class="form-group">
          <%= f.label :email %>
@@ -16,8 +17,19 @@
          <%= f.password_field :password_confirmation, class: 'form-control' %>
        </div>
          <%= f.submit '登録', class: 'btn btn-primary' %>
-     <% end %>
-     <div class='text-center'>
+      <% end %>    
+      <%= form_with modle: @family, local: true do |f| %>
+      <%=#家族情報入力フォーム%>
+        <div class="form-group">     
+          <%= f.label :family_name %>
+          <%= f.family_name_field :family_name, class: 'form-control' %>
+        </div>
+         <div class="form-group">
+          <%= f.label :family_number %>
+          <%= f.family_number_field :family_number, class: 'form-control' %>
+         </div>
+           <% end %>
+    <div class='text-center'>
        <%= link_to 'ログインページへ', login_path %> 
     </div>
   </div>

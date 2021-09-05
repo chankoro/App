@@ -4,7 +4,10 @@ class UsersController < ApplicationController
   # GET /users or /users.json
 
   def new
-    @user = User.new
+    @user =User.new
+    family = Family.new
+    family.users.new(user_params)
+    family.save
   end
 
   # POST /users or /users.json
