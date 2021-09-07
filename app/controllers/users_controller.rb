@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users or /users.json
 
   def new
-    @user =User.new
+    @user =User.new     
     family = Family.new
     family.users.new(user_params)
     family.save
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
-    
+  binding.pry
     if @user.save
       redirect_to login_path
       flash[:notice] =  "ユーザー作成に成功しました"

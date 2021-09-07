@@ -3,8 +3,7 @@ class CreateFamilies < ActiveRecord::Migration[5.2]
   
   def change
     create_table :families do |t|
-    t.string :name
-    t.integer :number
+    t.string :family_name
     t.timestamps
   end
   
