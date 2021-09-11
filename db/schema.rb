@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_09_05_075639) do
 
   create_table "families", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
