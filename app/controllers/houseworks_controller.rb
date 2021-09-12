@@ -1,5 +1,7 @@
 class HouseworksController < ApplicationController
   
+  protect_from_forgery
+  
   #new.viewと共有
   def new
     @housework = Housework.new
@@ -34,6 +36,13 @@ class HouseworksController < ApplicationController
     housework.update(housework_params)
     redirect_to housework_path(housework_id)
   end
+  
+  #削除機能
+    def destroy
+    housework = Housework.find(params[:id])
+    housework.destroy
+    redirect_to houseworks_path
+    end
   
   #ストロングパラメータで作業名を表す:title,更新時間を表す:time,メモを残す:note
   private

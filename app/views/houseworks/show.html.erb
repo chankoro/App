@@ -2,3 +2,4 @@
 <p><%= @housework.title %></p>
 
 <%= link_to "編集", edit_housework_path(@housework.id) %>
+<%= link_to "削除", housework_path(@housework.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
