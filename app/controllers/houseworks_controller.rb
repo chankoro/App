@@ -13,6 +13,11 @@ class HouseworksController < ApplicationController
     redirect_to houseworks_path
   end
   
+  #登録した家事をすべてのデータを取り出して格納するからインスタンス変数名を複数形
+  def index
+    @houseworks = Housework.all
+  end
+  
   #ストロングパラメータで作業名を表す:title,更新時間を表す:time,メモを残す:note
   private
     def housework_params
