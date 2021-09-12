@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+ 
+  root "users#new"
+  root 'houseworks#index'
+  
   resources :users, only: %i[new create show]
   
   #家事モデルのresource
@@ -10,5 +14,5 @@ Rails.application.routes.draw do
   get "show", to: "user_sessions#show"
   
   delete "logout", to: "user_sessions#destroy"
-  root "users#new"
+  
 end
