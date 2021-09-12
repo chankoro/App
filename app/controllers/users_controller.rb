@@ -3,10 +3,6 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
   # GET /users or /users.json
 
-  def show
-    @user = User.find(params[:id])
-  end
-
   def new
     @user = User.new
   end
@@ -31,6 +27,15 @@ class UsersController < ApplicationController
     end
   end
 
+
+  def show
+    @user = User.find(params[:id])
+  end
+
+ def edit
+    @user = user.find(params[:id])
+ end
+  
   private #ストロングパラメーターでpassとpass confirm
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
