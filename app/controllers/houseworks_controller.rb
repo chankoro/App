@@ -23,6 +23,18 @@ class HouseworksController < ApplicationController
     @housework = Housework.find(params[:id])
   end
   
+  #編集
+  def edit
+    @housework = Housework.find(params[:id])
+  end
+  
+  #更新
+  def update
+    housework = Housework.find(params[:id])
+    housework.update(housework_params)
+    redirect_to housework_path(housework_id)
+  end
+  
   #ストロングパラメータで作業名を表す:title,更新時間を表す:time,メモを残す:note
   private
     def housework_params
