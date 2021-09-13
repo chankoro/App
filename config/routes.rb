@@ -1,18 +1,21 @@
 Rails.application.routes.draw do
  
   root "users#new"
-  root 'houseworks#index'
-  
   resources :users, only: %i[new create show]
   
   #家事モデルのresource
   resources :houseworks
 
-  get "login", to: "user_sessions#new"
-  post "login", to: "user_sessions#create"
+  get 'login', to: 'user_sessions#new'
+  post 'login', to: "user_sessions#create"
+  delete 'logout', to: 'user_sessions#destroy'
   get "edit", to: "user_sessions#edit"
-  get "show", to: "user_sessions#show"
+  get "show", to: "users#show"
   
-  delete "logout", to: "user_sessions#destroy"
-  
+    root 'houseworks#index'
+    get 'houseworks', to: "houseworks#index"
+    post 'houseworks', to: "houseworks#store"
+    get 'houseworks/:id', to: "houseworks#show"
+    put 'houseworks/:id', to: "houseworks#update"
+    delete 'houseworks/:id', to: "houseworks#destroy"
 end

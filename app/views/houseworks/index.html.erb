@@ -1,7 +1,0 @@
-<h1>家事一覧</h1>
-<% @houseworks. each do |housework| %>
-  <p>月曜日</p>
-  <span>
-    <%=link_to housework.title, housework_path(housework.id) %>
-  </span>
-<% end %>

@@ -8,4 +8,3 @@ end
   
   def help
   end
-end

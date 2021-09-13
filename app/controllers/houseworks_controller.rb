@@ -2,6 +2,7 @@ class HouseworksController < ApplicationController
   
   protect_from_forgery
   
+ 
   #new.viewと共有
   def new
     @housework = Housework.new
@@ -17,7 +18,8 @@ class HouseworksController < ApplicationController
   
   #登録した家事をすべてのデータを取り出して格納するからインスタンス変数名を複数形
   def index
-    @houseworks = Housework.all
+    @houseworks = Housework.order('time').all
+    @note = ['todo', 'doing', 'done']
   end
   
   #登録した家事一覧を表示する。
