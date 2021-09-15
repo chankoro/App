@@ -10,4 +10,5 @@ class User < ApplicationRecord
 
 #Family modelの下にUser modelが存在する。
   belongs_to :family, optional: true
+  has_many :houseworks
 end

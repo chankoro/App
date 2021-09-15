@@ -2,7 +2,11 @@ class HouseworksController < ApplicationController
   
   protect_from_forgery
   
- 
+  #日付を取得させて、曜日を表示させる。
+  def Date
+    @date1 = Date.current.strftime('%x %A')
+  end   
+  
   #new.viewと共有
   def new
     @housework = Housework.new
@@ -10,16 +14,21 @@ class HouseworksController < ApplicationController
   
   
   def create
-    housework = Housework.new(housework_params)
-    housework.save
-    #データベースへ保存後投稿画面へ戻る
-    redirect_to housework_path(housework.id)
+    @housework = current_user.houseworks.new(housework_params)
+    
+
+    if @housework.save
+      redirect_to houseworks_path
+      flash[:notice] = "家事作成に成功しました"
+    else
+      flash.now[:alert] = "家事作成に失敗しました"
+      render :new
+    end
   end
   
   #登録した家事をすべてのデータを取り出して格納するからインスタンス変数名を複数形
   def index
-    @houseworks = Housework.order('time').all
-    @note = ['todo', 'doing', 'done']
+     @housework = Housework.find(params[:id])
   end
   
   #登録した家事一覧を表示する。
