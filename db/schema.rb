@@ -19,10 +19,11 @@ ActiveRecord::Schema.define(version: 2021_09_12_033943) do
   end
 
   create_table "houseworks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
+    t.integer "family_id"
     t.integer "user_id"
     t.datetime "time"
-    t.text "note"
+    t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

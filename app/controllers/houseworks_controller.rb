@@ -28,12 +28,7 @@ class HouseworksController < ApplicationController
   
   #登録した家事をすべてのデータを取り出して格納するからインスタンス変数名を複数形
   def index
-     @housework = Housework.find(params[:id])
-  end
-  
-  #登録した家事一覧を表示する。
-  def show
-    @housework = Housework.find(params[:id])
+     @housework = Housework.all
   end
   
   #編集
@@ -45,7 +40,7 @@ class HouseworksController < ApplicationController
   def update
     housework = Housework.find(params[:id])
     housework.update(housework_params)
-    redirect_to housework_path(housework_id)
+    redirect_to housework_path(housework_params)
   end
   
   #削除機能
