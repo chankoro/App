@@ -1,5 +1,6 @@
 class UserSessionsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
+  protect_from_forgery :except => ["destroy"]
   
   def create
     @user = login(params[:email], params[:password])
@@ -14,8 +15,18 @@ class UserSessionsController < ApplicationController
   
   def destroy
     logout
-    redirect_to(:users, notice: 'ログアウトしました')
+    redirect_to root_url, info: 'ログアウトしました'
   end
+  
+  private
+   def log_in(user)
+     session[:user_id] = user.id
+   end
+   
+   def log_out
+     session.delete(:user_id)
+     @current_user = nil
+   end
 end
 
 #ログインしたらルートパスにリダイレクトします。

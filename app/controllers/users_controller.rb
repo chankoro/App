@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  
+  protect_from_forgery :except => ["destroy","logout"]
   #未ログインをはじかない
   skip_before_action :require_login, only: [:new, :create]
   # GET /users or /users.json
@@ -29,25 +31,18 @@ class UsersController < ApplicationController
 
 
   def show
-
+     @users = User.all
   end
 
  def edit
     @user = user.find(params[:id])
  end
-  
-  def destroy
-    logout
-     redirect_to　new_user_path　(root_url, notice: 'ログアウトしました')
-  end
-    
-  def log_out
-    session.delete(:user_id)
-    @current_user = nil
-  end
-  
+
   private #ストロングパラメーターでpassとpass confirm
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
+  
 end
+
+  

@@ -28,7 +28,7 @@ class HouseworksController < ApplicationController
   
   #登録した家事をすべてのデータを取り出して格納するからインスタンス変数名を複数形
   def index
-     @housework = Housework.all
+     @houseworks = Housework.all
   end
   
   #編集

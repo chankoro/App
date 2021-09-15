@@ -1,8 +1,8 @@
 <h1> <@familly.name>家の家事リスト</h1>
-<%=@date1 %>
 
- <div class=houseworks-container>
-  <%= @housework.title %>
+  <% @houseworks.each do |housework| %>
+  <%= housework.title %>
+  <% end %>
    </div>
    <%= link_to "編集", "#" %>
    <% #edit_housework_path(@housework.id) %>
