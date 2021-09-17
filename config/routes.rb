@@ -11,13 +11,11 @@ Rails.application.routes.draw do
   get "edit", to: "user_sessions#edit"
   get "show", to: "users#show"
   
-  resources :users, only: %i[new create show destroy]
-  
   get 'houseworks/index'
   post '/houseworks', to: 'houseworks#create'
   delete '/houseworks', to: 'houseworks#destroy'
 
-  
+  resources :users, only: %i[new create show destroy]
   #家事モデルのresource
   resources :houseworks
 end

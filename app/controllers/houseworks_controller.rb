@@ -7,16 +7,20 @@ class HouseworksController < ApplicationController
     @date1 = Date.current.strftime('%x %A')
   end   
   
-  #new.viewと共有
+  def index
+     @housework = Housework.new
+     @houseworks = Housework.all
+  end
+   #登録した家事をすべてのデータを取り出して格納するからインスタンス変数名を複数形
+   #new.viewと共有
   def new
     @housework = Housework.new
+    @user = User.find_by(id: params[:id])
   end
   
   
   def create
     @housework = current_user.houseworks.new(housework_params)
-    
-
     if @housework.save
       redirect_to houseworks_path
       flash[:notice] = "家事作成に成功しました"
@@ -26,11 +30,7 @@ class HouseworksController < ApplicationController
     end
   end
   
-  #登録した家事をすべてのデータを取り出して格納するからインスタンス変数名を複数形
-  def index
-     @houseworks = Housework.all
-  end
-  
+ 
   #編集
   def edit
     @housework = Housework.find(params[:id])
@@ -38,8 +38,8 @@ class HouseworksController < ApplicationController
   
   #更新
   def update
-    housework = Housework.find(params[:id])
-    housework.update(housework_params)
+    @housework = Housework.find(params[:id])
+    @housework.update(housework_params)
     redirect_to housework_path(housework_params)
   end
   
