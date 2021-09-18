@@ -7,16 +7,20 @@
     <%= csp_meta_tag %>
   </head>
 
-  <body>
-  <%#ログイン・ログアウト機能%> 
-    
+<body>
+  <div class="container">
+    <%= yield %>
+    <%#画面下に持ってきたいのでyieldの下に記入%>
+    <%#ナビゲーション機能%>
   <div id="nav">
+  <%#ログイン後、登録しているユーザーの場合%>
    <% if current_user %>
    <%= link_to "Edit Profile", :show %>
     <%= link_to "Log out", logout_path, method: "delete" %>
     <%= link_to "家事へ" , houseworks_path %>
+   <%#ログインしていないまたは、登録していないユーザーの場合%>
    <% else %>
-    <%= link_to "Register" , new_user_path %>
+    <%= link_to "新規登録" , new_user_path %>
     <%= link_to "Login", :login %>
    <% end %>
   </div>
@@ -24,8 +28,6 @@
     <p id="notice"><%= flash[:notice] %></p>
     <p id="alert"><%= flash[:alert] %></p>
   </div>
-  <div class="container">
-    <%= yield %>
   </div>
   </body>
 </html>
