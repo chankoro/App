@@ -47,16 +47,17 @@ class HouseworksController < ApplicationController
     redirect_to houseworks_path
   end
   
-  #日付を取得させて、曜日を表示させる。
-  def Date
-    @date1 = Date.current.strftime('%x %A')
-  end   
-  
-  
   #ストロングパラメータで作業名を表す:title,更新時間を表す:time,メモを残す:note
   private
     def housework_params
     params.require(:housework).permit(:title,:time,:note)
     end
     
+  #日付を取得させて、曜日を表示させるための定義。
+   def date_today 
+  #今は、今日と定義
+    @now = Date.today
+  #曜日を配列によって指定する。月だったら値は0
+  　@wday = ["月","火","水","木","金","土","日"]
+   end   
   end
