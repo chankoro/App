@@ -1,21 +1,24 @@
- <h1> <@familly.name>家の家事リスト</h1>
-   <div class="topic-index-wrapper">
-  <div class="container">
-  <% @houseworks.each do |housework| %>   
-   <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <%# 項目を一つずつ表示のため追記 %>
-          <div class="housework-index-single">
-              <%= housework.title %>
-              <%= link_to "編集", edit_housework_path(housework) %>
-               <%= link_to "削除", housework_path(housework), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-            <p class="topic-text">
-              <%= housework.note %>
-            </p>
-          </div>
-        </div>
-      </div>
-     </div>
-      <% end %>
-    <%= link_to "登録" , new_housework_path %>
- </div>
+<h1> <@familly.name>家の家事リスト</h1>
+<%#表の形の指定%>
+<table class="table">
+ <%#上に表示する見出しみたいなの%>
+ <thead>
+  <tr>
+   <th>内　容</th>
+   <th>ノート</th>
+  </tr>
+ </thead>
+ <%#テーブルの中身 %>
+ <tbody>
+  <% @houseworks.each do |housework| %>
+   <tr>
+    <td><%= housework.title %></td>
+    <td><%= housework.note %></td>
+    <td><%= link_to "編集", edit_housework_path(housework) %></td>
+    <td><td><%= link_to "削除", housework_path(housework), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+   </tr>
+  <% end %>
+  </tbody>
+ </table>
+ <br>
+ <%= link_to "登録", new_housework_path, class: "btn btn-primary" %> 

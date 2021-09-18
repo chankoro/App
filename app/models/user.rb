@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  #sorceryを有効にするための宣言
   authenticates_with_sorcery!
 
 #if: -> { new_record? || changes[:crypted_password] }でユーザーがパスワード以外のプロフィール項目更新の時にパスワード入力を省略できる
@@ -10,5 +11,6 @@ class User < ApplicationRecord
 
 #Family modelの下にUser modelが存在する。
   belongs_to :family, optional: true
+#user modelの下にhouseworks modelが存在する。
   has_many :houseworks
 end

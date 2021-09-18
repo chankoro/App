@@ -1,9 +1,15 @@
 <h1>家事登録</h1>
-
+<%# houseworkの登録フォームを作るために form_forを使う。>
+<% form_for モデルオブジェクト do |f| %>
 <%= form_for @housework do |f| %>
-
-<%= f.text_field :title %>
-
+<%# 家事の内容を把握するためにタイトルを入れる。f.text_fieldで入力フォームの作成 %>
+<%= f.label :title %>
+<div class="form-group">
+<%= f.text_field :title,  class: "form-contorol" %>
+</div>
+<%= f.label :note %>
+<div class="form-group">
+<%= f.text_area :note, class: "form-contorol" %>
+</div>
 <%= f.submit 'ボタン' %>
-
 <% end %>

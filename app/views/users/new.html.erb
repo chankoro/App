@@ -23,11 +23,12 @@
         </div>
       <% end %>
       <div class='text-center'>
-        <%= link_to 'ログインページへ', login_path %>
+       <%= link_to 'ログインページへ', login_path %>
       </div>
   </div>
  </div>
 </div>
-
+<%#フォームタグ作成のためにform_with model local:で画面を切り替えることなく入力確認を実施させている。%> 
 <%#crypted_passwordやsaltカラムのデータはユーザーが直接変更・表示できないようにするため、ビューには書かない%>
 <%#familyよりuserが下にあるからfamilyの中にuserが入るようにしている。 %>
+<%#ログインページへ飛ぶようにログインページへpathを出す。_pathは相対パスなのでlogin_path%>
