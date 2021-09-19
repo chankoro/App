@@ -6,7 +6,7 @@
      t.integer :user_id
      t.datetime :time
      t.string :note
-     t.string :wday
+     t.integer :wday
      t.datetime :created_at 
      t.datetime :updated_at 
      t.timestamps        

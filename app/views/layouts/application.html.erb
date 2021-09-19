@@ -9,6 +9,10 @@
 
 <body>
   <div class="container">
+   <div>
+    <p id="notice"><%= flash[:notice] %></p>
+    <p id="alert"><%= flash[:alert] %></p>
+   </div>
     <%= yield %>
     <%#画面下に持ってきたいのでyieldの下に記入%>
     <%#ナビゲーション機能%>
@@ -23,10 +27,6 @@
     <%= link_to "新規登録" , new_user_path %>
     <%= link_to "Login", :login %>
    <% end %>
-  </div>
-  <div>
-    <p id="notice"><%= flash[:notice] %></p>
-    <p id="alert"><%= flash[:alert] %></p>
   </div>
   </div>
   </body>

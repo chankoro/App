@@ -50,7 +50,7 @@ class HouseworksController < ApplicationController
   #ストロングパラメータで作業名を表す:title,更新時間を表す:time,メモを残す:note
   private
     def housework_params
-    params.require(:housework).permit(:title,:time,:note)
+    params.require(:housework).permit(:title,:time,:note,:wday)
     end
     
   #日付を取得させて、曜日を表示させるための定義。

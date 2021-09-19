@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_09_12_033943) do
     t.integer "user_id"
     t.datetime "time"
     t.string "note"
-    t.string "wday"
+    t.integer "wday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

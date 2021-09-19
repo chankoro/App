@@ -7,6 +7,30 @@
       <%= f.label :タイトル %>
       <%= f.text_field :title,class:"form-control" %>
      </div>
+  <%#曜日選択のボタンを作る。月⇒日で0⇒6%>
+     <div class="form-group">
+       <%#月曜日%>
+       <%= f.label :wday, '月' , value: 0 %>
+       <%= f.radio_button :wday, '0' %>
+       <%#火曜日%>
+       <%= f.label :wday, '火' , value: 1 %>
+       <%= f.radio_button :wday, '1' %>
+       <%#水曜日%>
+       <%= f.label :wday, '水' , value: 2 %>
+       <%= f.radio_button :wday, '2' %>
+       <%#木曜日%>
+       <%= f.label :wday, '木' , value: 3 %>
+       <%= f.radio_button :wday, '3' %>
+       <%#金曜日%>
+       <%= f.label :wday, '金', value: 4 %>
+       <%= f.radio_button :wday, '4' %>
+       <%#土曜日%>
+       <%= f.label :wday, '土', value: 5 %>
+       <%= f.radio_button :wday, '5' %>
+       <%#日曜日%>
+       <%= f.label :wday, '日' , value: 6 %>
+       <%= f.radio_button :wday, '6' %>
+       </div>
      <div class-"form-group">
       <%= f.label :ノート %>
       <%= f.text_area :note, class: "form-control" %>

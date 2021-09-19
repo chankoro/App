@@ -3,13 +3,37 @@
 <% form_for モデルオブジェクト do |f| %>
 <%= form_for @housework do |f| %>
 <%# 家事の内容を把握するためにタイトルを入れる。f.text_fieldで入力フォームの作成 %>
-<%= f.label :title %>
-<div class="form-group">
-<%= f.text_field :title,  class: "form-contorol" %>
-</div>
-<%= f.label :note %>
-<div class="form-group">
-<%= f.text_area :note, class: "form-contorol" %>
-</div>
-<%= f.submit 'ボタン' %>
-<% end %>
+ <%= f.label :title %>
+  <div class="form-group">
+   <%= f.text_field :title,  class: "form-contorol" %>
+  </div>
+  <%= f.label :note %>
+  <div class="form-group">
+   <%= f.text_area :note, class: "form-contorol" %>
+  </div>
+  <%#曜日を指定させる%>
+  <div class="form-group">
+   <%#月曜日%>
+   <%= f.label :wday, '月', value: 0 %>
+   <%= f.radio_button :wday, '0' %>
+   <%#火曜日%>
+   <%= f.label :wday, '火', value: 1 %>
+   <%= f.radio_button :wday, '1' %>
+   <%#水曜日%>
+   <%= f.label :wday, '水', value: 2 %>
+   <%= f.radio_button :wday, '2' %>
+   <%#木曜日%>
+   <%= f.label :wday, '木', value: 3 %>
+   <%= f.radio_button :wday, '3' %>
+   <%#金曜日%>
+   <%= f.label :wday, '金', value: 4 %>
+   <%= f.radio_button :wday, '4' %>
+   <%#土曜日%>
+   <%= f.label :wday, '土', value: 5 %>
+   <%= f.radio_button :wday, '5' %>
+   <%#日曜日%>
+   <%= f.label :wday, '日', value: 6 %>
+   <%= f.radio_button :wday, '6' %>
+  </div>
+  <%= f.submit 'ボタン' %>
+  <% end %>
