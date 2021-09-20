@@ -1,7 +1,9 @@
 <h1>家事登録</h1>
 <%# houseworkの登録フォームを作るために form_forを使う。>
 <% form_for モデルオブジェクト do |f| %>
+
 <%= form_for @housework do |f| %>
+
 <%# 家事の内容を把握するためにタイトルを入れる。f.text_fieldで入力フォームの作成 %>
  <%= f.label :title %>
   <div class="form-group">
@@ -11,29 +13,15 @@
   <div class="form-group">
    <%= f.text_area :note, class: "form-contorol" %>
   </div>
-  <%#曜日を指定させる%>
+  
+  <%#曜日を指定させる、チェックボックスで指定することで複数選べるようにする%>
+  <%#each_with_indexメソッドでチェックボックスに番号を振る。月曜日を0に指定。%>
+  <%= f.label :"曜　日" %>
   <div class="form-group">
-   <%#月曜日%>
-   <%= f.label :wday, '月', value: 0 %>
-   <%= f.radio_button :wday, '0' %>
-   <%#火曜日%>
-   <%= f.label :wday, '火', value: 1 %>
-   <%= f.radio_button :wday, '1' %>
-   <%#水曜日%>
-   <%= f.label :wday, '水', value: 2 %>
-   <%= f.radio_button :wday, '2' %>
-   <%#木曜日%>
-   <%= f.label :wday, '木', value: 3 %>
-   <%= f.radio_button :wday, '3' %>
-   <%#金曜日%>
-   <%= f.label :wday, '金', value: 4 %>
-   <%= f.radio_button :wday, '4' %>
-   <%#土曜日%>
-   <%= f.label :wday, '土', value: 5 %>
-   <%= f.radio_button :wday, '5' %>
-   <%#日曜日%>
-   <%= f.label :wday, '日', value: 6 %>
-   <%= f.radio_button :wday, '6' %>
+   <% weekly_colums.each_with_index do |day,i| %>
+   <%= f.check_box day.to_sym , {} , "true", "false" %>
+   <%= f.label day.to_sym , ["月","火","水","木","金","土","日"][i] %>
+   <% end %>
   </div>
-  <%= f.submit 'ボタン' %>
-  <% end %>
+  <%= f.submit '決　定' %>
+ <% end %>

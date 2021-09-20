@@ -15,7 +15,7 @@
    <tr>
     <td><%= housework.title %></td>
     <td><%= housework.note %></td>
-    <td><%= housework.wday %></td>
+
     <td><%= link_to "編集", edit_housework_path(housework) %></td>
     <td><td><%= link_to "削除", housework_path(housework), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
    </tr>

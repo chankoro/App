@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_12_033943) do
+ActiveRecord::Schema.define(version: 2021_09_20_022342) do
 
   create_table "families", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -24,9 +24,15 @@ ActiveRecord::Schema.define(version: 2021_09_12_033943) do
     t.integer "user_id"
     t.datetime "time"
     t.string "note"
-    t.integer "wday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "monday", default: false, null: false
+    t.boolean "tuesday", default: false, null: false
+    t.boolean "wednesday", default: false, null: false
+    t.boolean "thursday", default: false, null: false
+    t.boolean "friday", default: false, null: false
+    t.boolean "saturday", default: false, null: false
+    t.boolean "sunday", default: false, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
