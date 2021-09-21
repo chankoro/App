@@ -1,4 +1,129 @@
-<p>更新が完了しました。</p>
+<h1>月曜日</h1>
+<%#週ごとの表示をするのでテーブルにする。%>
+ <table class = table>
+   <thead>
+     <tr>やること<tr>
+     <tr>完了ボタン<tr>
+　 </thead>
+　 <tbody>
+　  <% @houseworks.each do |housework| %>
+　   <tr>
+      <% if housework.monday == true %>
+       <td><%= housework.title %></td>
+      <% end %>
+       <td></td>
+    <% end %>
+     </tr>
+   </tbody>
+ </table>
 
-<%= link_to "戻る",houseworks_path, class: "btn btn-primary"%>
+<h1>火曜日</h1>
+<table class = table>
+   <thead>
+     <tr>やること<tr>
+     <tr>完了ボタン<tr>
+　 </thead>
+　 <tbody>
+　  <% @houseworks.each do |housework| %>
+　   <tr>
+      <% if housework.tuesday == true %>
+       <td><%= housework.title %></td>
+      <% end %>
+       <td></td>
+    <% end %>
+     </tr>
+   </tbody>
+</table>
+ 
+ <h1>水曜日</h1>
+ <table class = table>
+   <thead>
+     <tr>やること<tr>
+     <tr>完了ボタン<tr>
+　 </thead>
+　 <tbody>
+　  <% @houseworks.each do |housework| %>
+　   <tr>
+      <% if housework.wednesday == true %>
+       <td><%= housework.title %></td>
+      <% end %>
+       <td></td>
+    <% end %>
+     </tr>
+   </tbody>
+ </table>
+ 
+ <h1>木曜日</h1>
+ <table class = table>
+   <thead>
+     <tr>やること<tr>
+     <tr>完了ボタン<tr>
+　 </thead>
+　 <tbody>
+　  <% @houseworks.each do |housework| %>
+　   <tr>
+      <% if housework.thursday == true %>
+       <td><%= housework.title %></td>
+      <% end %>
+       <td></td>
+    <% end %>
+     </tr>
+   </tbody>
+ </table>
+ 
+ <h1>金曜日</h1>
+ <table class = table>
+   <thead>
+     <tr>やること<tr>
+     <tr>完了ボタン<tr>
+　 </thead>
+　 <tbody>
+　  <% @houseworks.each do |housework| %>
+　   <tr>
+      <% if housework.friday == true %>
+       <td><%= housework.title %></td>
+      <% end %>
+       <td></td>
+    <% end %>
+     </tr>
+   </tbody>
+ </table>
+ 
+ <h1>土曜日</h1>
+ <table class = table>
+   <thead>
+     <tr>やること<tr>
+     <tr>完了ボタン<tr>
+　 </thead>
+　 <tbody>
+　  <% @houseworks.each do |housework| %>
+　   <tr>
+      <% if housework.saturday == true %>
+       <td><%= housework.title %></td>
+      <% end %>
+       <td></td>
+    <% end %>
+     </tr>
+   </tbody>
+ </table>
+ 
+ <h1>日曜日</h1>
+ <table class = table>
+   <thead>
+     <tr>やること<tr>
+     <tr>完了ボタン<tr>
+　 </thead>
+　 <tbody>
+　  <% @houseworks.each do |housework| %>
+　   <tr>
+      <% if housework.sunday == true %>
+       <td><%= housework.title %></td>
+      <% end %>
+       <td></td>
+    <% end %>
+     </tr>
+   </tbody>
+ </table>
+
+<%= link_to "家事登録一覧へ",houseworks_path, class: "btn btn-primary"%>
 <%# 日付を表示させる。%>

@@ -3,6 +3,7 @@ class HouseworksController < ApplicationController
   protect_from_forgery
   
   def index
+     @familiy = current_user.family
   #新規登録用に取得
      @housework = Housework.new
   #一覧画面ですべてが見れるように全部取得
@@ -30,6 +31,9 @@ class HouseworksController < ApplicationController
      end
   end
   
+  def show
+    @houseworks = Housework.all
+  end
  
   #編集、編集するために対象のidを拾ってくる。
   def edit

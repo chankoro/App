@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
 #表示はログインしてるユーザーをすべて表示したいから.all
   def show
-     @users = User.all
+     @user = current_user
   end
 
 #編集機能としてfindで検索して表示させる。
