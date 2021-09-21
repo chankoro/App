@@ -64,4 +64,5 @@ class HouseworksController < ApplicationController
   #曜日を配列によって指定する。月だったら値は0
   　 @wday = ["月","火","水","木","金","土","日"]
     end
+     
   end

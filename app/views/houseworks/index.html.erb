@@ -15,7 +15,37 @@
    <tr>
     <td><%= housework.title %></td>
     <td><%= housework.note %></td>
-
+<%# 登録の際に曜日のチェックボックスで選択したものだけを表示する。%>
+    <td>
+        <%# 月曜日 %>
+        <% if housework.monday == true %>
+        <%= p "月" %>
+        <% end %>
+        <%# 火曜日 %>
+        <% if housework.tuesday == true %>
+        <%= p "火" %>
+        <% end %>
+        <%# 水曜日 %>
+        <% if housework.wednesday == true %>
+        <%= p "水" %>
+        <% end %>
+        <%# 木曜日 %>
+        <% if housework.thursday == true %>
+        <%= p "木" %>
+        <% end %>
+        <%# 金曜日 %>
+        <% if housework.friday == true %>
+        <%= p "金" %>
+        <% end %>
+        <%# 土曜日 %>
+        <% if housework.saturday == true %>
+        <%= p "土" %>
+        <% end %>
+        <%# 日 %>
+        <% if housework.sunday == true %>
+        <%= p "日" %>
+        <% end %>
+    </td>
     <td><%= link_to "編集", edit_housework_path(housework) %></td>
     <td><td><%= link_to "削除", housework_path(housework), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
    </tr>

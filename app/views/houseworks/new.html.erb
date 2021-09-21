@@ -15,10 +15,10 @@
   </div>
   
   <%#曜日を指定させる、チェックボックスで指定することで複数選べるようにする%>
-  <%#each_with_indexメソッドでチェックボックスに番号を振る。月曜日を0に指定。%>
+  <%#each_with_indexメソッドでチェックボックスに番号を振る。%>
   <%= f.label :"曜　日" %>
   <div class="form-group">
-   <% weekly_colums.each_with_index do |day,i| %>
+   <% weekly_columns.each_with_index do |day,i| %>
    <%= f.check_box day.to_sym , {} , "true", "false" %>
    <%= f.label day.to_sym , ["月","火","水","木","金","土","日"][i] %>
    <% end %>
