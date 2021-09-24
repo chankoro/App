@@ -1,49 +1,57 @@
 //pages/indexのCSS
-// h1, h2 {
-//   font-weight: 100;
-// }
+h1, {
+  font-weight: 100;
+}
 
-// .text-white {
-//   color: #fff;
-// }
+.text-white {
+  color: #fff;
+}
 
-// .btn-white {
-//   color: #fff;
-//   border: 1px solid #fff;
-//   padding-top: 15px;
-//   padding-bottom: 15px;
-//   font-size: 20px;
-//   background-color: rgba(0,0,0,0.0);
+.btn-white {
+  color: #fff;
+  border: 1px solid #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+  background-color: rgba(0,0,0,0.0);
 
-//   &:hover {
-//     color: #fff;
-//   }
-// }
+  &:hover {
+    color: #fff;
+  }
+}
 
-// .top-hero-wrapper {
-//   width: 100vw;
-//   height: 100vh;
-//   background-image: image-url('bg-top.png');
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-attachment: fixed;
-//   background-size: cover;
-//   background-color: #464646;
-// }
+.top-hero-wrapper {
+  height: 100vh;
+  background-image: image-url('bg-top.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
 
-// .top-hero-container {
-//   padding-top: 220px;
-//   h1 {
-//     font-size: 56px;
-//     margin-bottom: 20px;
-//     text-align:center;
-//   　padding:20px 0;
-//   }
+.top-hero-container {
+  padding-top: 220px;
+  h1 {
+    font-size: 56px;
+    margin-bottom: 20px;
+    text-align:center;
+  　padding:20px 0;
+  }
+}
 
-//   h2 {
-//     margin-bottom: 60px;
-//   }
-// }
+//ヘッダーのメニューバー
+.navbar-transparent {
+  margin-bottom: 0px;
+  background-color: rgba(0,0,0,0.5);
+  a {
+    color: #fff !important;
+  }
+  
+  img {
+    height: 40px;
+  }
+}
 
 // 登録フォームのCSS
 

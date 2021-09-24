@@ -8,29 +8,54 @@
   </head>
 
 <body>
-  <div class="container">
-   <div>
-    <p id="notice"><%= flash[:notice] %></p>
-    <p id="alert"><%= flash[:alert] %></p>
-   </div>
-    <%#画面下に持ってきたいのでyieldの下に記入%>
-    <%#ナビゲーション機能%>
+ <% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+ <% end %>
+ <p id="notice"><%= flash[:notice] %></p>
+ <p id="alert"><%= flash[:alert] %></p>
+<%#ナビゲーション機能%>
+ <nav class="navbar navbar-default navbar-fixed-topnavbar-transparent">
     <div class= "container">
-     <div class= "row">
-      <div id="nav">
-  <%#ログイン後、登録しているユーザーの場合%>
-   <% if current_user %>
-   <%= link_to "Edit Profile", :show %>
-    <%= link_to "Log out", logout_path, method: "delete" %>
-    <%= link_to "家事へ" , houseworks_path %>
-   <%#ログインしていないまたは、登録していないユーザーの場合%>
-   <% else %>
-    <%= link_to "新規登録" , new_user_path %>
-    <%= link_to "Login", :login %>
-   <% end %>
-      </div>
-     </div>
+     <ul class="nav navbar-nav navbar-right">
+   <%#ログイン済みのユーザーの場合%>
+      <% if logged_in? %>
+       <li>
+        <%= link_to "#" do %>
+         <!--<%= image_tag "#" %>-->
+        <% end %>
+       </li>
+       <li>
+        <%= link_to "#" do %>
+         <!--<%= image_tag "#" %>-->
+        <% end %>
+       </li>
+       <li>
+        <%= link_to "#" do %>
+         <!--<%= image_tag "#" %>-->
+        <% end %>
+       </li>
+       <li>
+        <%= link_to logout_path, method: :delete do %>
+         <!--<%= image_tag "#" %>-->
+        <% end %>
+       </li>
+ <%#ログインしていないor新規ユーザーの場合%>
+      <% else %>
+       <li>
+        <%= link_to new_user_path do %>
+         <!--<%= image_tag "#" %>-->
+        <% end %>
+       </li>
+       <li>
+        <%= link_to login_path do %>
+         <!--<%= image_tag "#" %>-->
+        <% end %>
+       </li>
+      <% end %>
+     </ul>
     </div>
+ </nav>
+
     
     <%= yield %>
 
