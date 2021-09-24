@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     end
 
     if @user.save
-      redirect_to user_path(@user)
+      redirect_to root_path(@user)
       flash[:notice] = "ユーザー作成に成功しました"
     else
       flash.now[:alert] = "ユーザー作成に失敗しました"
@@ -40,7 +40,13 @@ class UsersController < ApplicationController
 #編集機能としてfindで検索して表示させる。
 #モデル.find(表示する対象、今回はuserのid)
  def edit
-    @user = user.find(params[:id])
+    @user = User.find(params[:id])
+ end
+ 
+ def update
+     @user = User.find(params[:id])
+     @user.update(user_params)
+     redirect_to user_path(user_params)
  end
 
   private #ストロングパラメーターでpassとpass confirm

@@ -1,0 +1,18 @@
+<div class="familyboards-new-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+       <h1 class="text-center">家族掲示板</h1>
+       <h1 class="text-center">コメント作成ページ</h1>
+       <%= form_for @familyboard do |f| %>
+         <div class="form-group">
+           <%= f.label :コメント %>
+           <%= f.text_area :description, class: 'form-control' %>
+         </div>
+         <%= f.submit '投　稿', class: 'btn btn-black btn-block' %>
+       <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

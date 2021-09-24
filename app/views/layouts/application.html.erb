@@ -13,10 +13,11 @@
     <p id="notice"><%= flash[:notice] %></p>
     <p id="alert"><%= flash[:alert] %></p>
    </div>
-    <%= yield %>
     <%#画面下に持ってきたいのでyieldの下に記入%>
     <%#ナビゲーション機能%>
-  <div id="nav">
+    <div class= "container">
+     <div class= "row">
+      <div id="nav">
   <%#ログイン後、登録しているユーザーの場合%>
    <% if current_user %>
    <%= link_to "Edit Profile", :show %>
@@ -27,7 +28,12 @@
     <%= link_to "新規登録" , new_user_path %>
     <%= link_to "Login", :login %>
    <% end %>
-  </div>
-  </div>
+      </div>
+     </div>
+    </div>
+    
+    <%= yield %>
+
   </body>
 </html>
+

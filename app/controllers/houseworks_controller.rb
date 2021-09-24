@@ -3,7 +3,6 @@ class HouseworksController < ApplicationController
   protect_from_forgery
   
   def index
-     @familiy = current_user.family
   #新規登録用に取得
      @housework = Housework.new
   #一覧画面ですべてが見れるように全部取得

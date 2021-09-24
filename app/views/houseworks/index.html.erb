@@ -1,21 +1,36 @@
-<h1> <%= @family.name %>家の家事リスト</h1>
+<h1> 家事登録リスト</h1>
 
+<div class="container">
+ <div class-"row">
 <%#表の形の指定%>
 <table class="table">
  <%#上に表示する見出しみたいなの%>
  <thead>
   <tr>
+   <div class="col-xs-offset-2 col-xs-3">
    <th>内　容</th>
+   </div>
+   <div class="col-xs-3">
    <th>ノート</th>
+   </div>
+   <div class="col-xs-2 col-xs-offset-2">
    <th>曜　日</th>
+   </div>
   </tr>
  </thead>
+ </div>
  <%#テーブルの中身 %>
  <tbody>
-  <% @houseworks.each do |housework| %>
+   <% @houseworks.each do |housework| %>
    <tr>
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-3">
     <td><%= housework.title %></td>
+      </div>
+      <div class="col-xs-3">
     <td><%= housework.note %></td>
+      </div>
+       <div class="col-xs-2 col-xs-offset-2">
 <%# 登録の際に曜日のチェックボックスで選択したものだけを表示する。%>
     <td>
         <%# 月曜日 %>
@@ -47,6 +62,7 @@
         <%= p "日" %>
         <% end %>
     </td>
+       </div>
     <td><%= link_to "編集", edit_housework_path(housework) %></td>
     <td><td><%= link_to "削除", housework_path(housework), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
    </tr>
@@ -55,3 +71,5 @@
  </table>
  <br>
  <%= link_to "登録", new_housework_path, class: "btn btn-primary" %> 
+<%= link_to "週間予定へ", show_houseworks_path %>
+</div>

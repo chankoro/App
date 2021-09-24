@@ -1,11 +1,7 @@
 <div class="box">
   <div class="box-inner">
-      <h1>ユーザー登録</h1>
+      <h1>ユーザー情報の変更</h1>
       <%= form_with model: @user, local: true do |f| %>
-        <div class="box-family">
-          <%= f.label :family %>
-          <%= f.text_field :family, class: 'form-contorol' %>
-        </div>
         <div class="box-name">
           <%= f.label :name %>
           <%= f.text_field :name, class: 'form-control' %>
@@ -23,7 +19,7 @@
           <%= f.password_field :password_confirmation, class: 'form-control' %>
         </div>
         <div class="box-submit">
-          <%= f.submit '登録', class: 'btn btn-primary' %>
+          <%= f.submit '更　新', class: 'btn btn-primary' %>
         </div>
       <% end %>
       <div class='text-center'>
@@ -32,7 +28,3 @@
   </div>
  </div>
 </div>
-<%#フォームタグ作成のためにform_with model local:で画面を切り替えることなく入力確認を実施させている。%> 
-<%#crypted_passwordやsaltカラムのデータはユーザーが直接変更・表示できないようにするため、ビューには書かない%>
-<%#familyよりuserが下にあるからfamilyの中にuserが入るようにしている。 %>
-<%#ログインページへ飛ぶようにログインページへpathを出す。_pathは相対パスなのでlogin_path%>

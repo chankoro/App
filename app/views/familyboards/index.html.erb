@@ -1,0 +1,19 @@
+<div class="familyboard-index-wrapper">
+  <div class="container">
+    <%#投稿された一覧表示%>
+    <% @familyboards.each do |familyboard| %>
+     <div class ="row">
+       <div class="col-xs-6 col-xs-offset-3">
+         <div class="familyboard-index-single">
+           <p class="familyboard-author">
+             <%= familyboard.user.name %>
+           </p>
+           <p class="familyboard-text">
+             <%= familyboard.description %>
+           </p>
+         </div>
+       </div>
+     </div>
+    <% end %>
+  </div>
+</div>
