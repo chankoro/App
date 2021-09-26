@@ -51,7 +51,7 @@ class UsersController < ApplicationController
 
   private #ストロングパラメーターでpassとpass confirm
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:family_id, :name, :email, :password, :password_confirmation)
   end
   
 end

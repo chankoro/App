@@ -1,0 +1,6 @@
+<h1>家族一覧</h1>
+ <% @family_users.each do |family_users| %>
+  <p><%= family_users.name%></p>
+ <% end %>
+ 
+   <%= link_to "招待する" , new_family_user_url(@family) %>

@@ -9,18 +9,13 @@ Rails.application.routes.draw do
   get "edit", to: "user_sessions#edit"
   get "show", to: "users#show"
   
-  get 'houseworks/new'
-  get 'houseworks/index'
-  post '/houseworks', to: 'houseworks#create'
-  delete '/houseworks', to: 'houseworks#destroy'
-  get "show/houseworks", to: "houseworks#show"
+  # #家族idを作る前のユーザー情報
+  # resources :users, only: %i[new create show destroy]
   
-  get 'familyboards/new'
-  get 'familyboards/index'
-  post '/familyboards', to: 'familyboards#create'
-  delete '/familyboards', to: 'familyboards#destroy'
-  
-  
+  #家族idを作ってからのユーザーおよび家族情報
+  resources :families, only: %i[show] do
+  resources :users, only: %i[new create show destroy], module: "families"
+end
   resources :users, only: %i[new create show destroy]
   #家事モデルのresource
   resources :houseworks
