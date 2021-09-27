@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get "edit", to: "user_sessions#edit"
   get "show", to: "users#show"
   
+  get "houseworks/show", to: "houseworks#show"
+  
   # #家族idを作る前のユーザー情報
   # resources :users, only: %i[new create show destroy]
   
