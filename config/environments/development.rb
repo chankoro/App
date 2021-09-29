@@ -62,4 +62,19 @@ Rails.application.configure do
   #edit画面でCannot render console from 114.150.213.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255 
   #Processing by HouseworksController#edit as HTML　が表示されたため追記
   config.web_console.whitelisted_ips = '114.150.213.2'
+  
+  #招待メール設定
+  #メールが配信完了できない場合はエラーを発生させる。
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:                  587,
+    address:              'smtp.gmail.com',
+    domain:               'smtp.gmail.com',
+    user_name:            'appdevelop199@gmail.com',
+    password:             '12140215ab',
+    authentication:       'login',
+    enable_starttls_auto: true
+  }
+  
 end
