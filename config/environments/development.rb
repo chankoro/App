@@ -63,4 +63,16 @@ Rails.application.configure do
   #Processing by HouseworksController#edit as HTML　が表示されたため追記
   config.web_console.whitelisted_ips = '114.150.213.2'
   
+  #メール送信時にエラーを表示させる。
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.deliver_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:                    587,
+    address:                 'smtp.gmail.com',
+    domain:                  'gmail.com',
+    user_name:               'rails first',
+    password:                '12345678910Ab!',
+    authentication:          'login',
+    enable_starttls_auto:    true
+  }
 end
