@@ -1,4 +1,4 @@
-class HouseworksController < ApplicationController
+class Families::HouseworksController < ApplicationController
   
   protect_from_forgery
   
@@ -11,17 +11,19 @@ class HouseworksController < ApplicationController
   
   #new.viewと共有
   def new
-    @housework = Housework.new
+    @housework = current_user.houseworks.new
+    @family = Family.find_by(id: params[:family])
   end
   
   
   def create
 #ログインしているユーザーのみ作成できるのでcurrent_userを入れている。
     @housework = current_user.houseworks.new(housework_params)
-
+    @family = Family.find_by(id: params[:family])
      if @housework.valid?
      if @housework.save
-       redirect_to houseworks_path
+       @housework.family_id = housework.id
+       redirect_to houseworks_path(@family)
        flash[:notice] = "家事作成に成功しました"
      else
        flash.now[:alert] = "家事作成に失敗しました"
@@ -56,7 +58,7 @@ class HouseworksController < ApplicationController
   #ストロングパラメータで作業名を表す:title,更新時間を表す:time,メモを残す:note,曜日:wday
   private
     def housework_params
-    params.require(:housework).permit(:title,:time,:note,:monday,:tuesday,:wednesday,:thursday,:friday,:saturday,:sunday)
+    params.require(:housework).permit(:family_id,:user_id,:title,:time,:note,:monday,:tuesday,:wednesday,:thursday,:friday,:saturday,:sunday)
     
     end
     

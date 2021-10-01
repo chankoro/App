@@ -5,5 +5,6 @@ class Family < ApplicationRecord
   #familyが親、userが子、houseworkが孫
   has_many :users, dependent: :destroy
   has_many :houseworks, through: :users
+  has_many :familyboards
   accepts_nested_attributes_for :users
 end

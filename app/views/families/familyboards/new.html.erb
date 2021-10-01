@@ -4,7 +4,7 @@
       <div class="col-xs-6 col-xs-offset-3">
        <h1 class="text-center">家族掲示板</h1>
        <h1 class="text-center">コメント作成ページ</h1>
-       <%= form_for @familyboard do |f| %>
+        <%= form_with model: [@family,@familyboard], url:family_familyboards_path do |f| %>
          <div class="form-group">
            <%= f.label :コメント %>
            <%= f.text_area :description, class: 'form-control' %>
@@ -15,4 +15,3 @@
     </div>
   </div>
 </div>
-

@@ -1,4 +1,5 @@
 <%#招待メールフォーム%>
+<% binding.pry %>
 <%= form_for @invite , :url => invites_path do |f| %>
 <%#ユーザーが直接family_idを入力しなくていいようにinviteモデルにfamily_idを渡す%>
  <%= f.hidden_field :family_id, :value => @invite.family_id %>

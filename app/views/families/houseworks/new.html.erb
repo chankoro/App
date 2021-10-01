@@ -2,7 +2,7 @@
 <%# houseworkの登録フォームを作るために form_forを使う。>
 <% form_for モデルオブジェクト do |f| %>
 
-<%= form_for @housework do |f| %>
+ <%= form_with model: [@family,@housework], url:family_houseworks_path do |f| %>
 
 <%# 家事の内容を把握するためにタイトルを入れる。f.text_fieldで入力フォームの作成 %>
  <%= f.label :title %>

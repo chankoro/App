@@ -20,14 +20,15 @@
    <%#ログイン済みのユーザーの場合%>
       <% if logged_in? %>
        <li>
+        <%= link_to "家族ページへ", family_path(current_user.family) %>
+       </li>
+       <li>
         <%= link_to "Edit Profile", :show %>
        </li>
        <li>
 　　　　<%= link_to "Log out", logout_path, method: "delete" %>
        </li>
-       <li>
-        <%= link_to "家事へ" , houseworks_path %>
-       </li>
+
  <%#ログインしていないor新規ユーザーの場合%>
       <% else %>
        <li>

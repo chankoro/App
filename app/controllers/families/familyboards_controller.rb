@@ -1,4 +1,4 @@
-class FamilyboardsController < ApplicationController
+class Families::FamilyboardsController < ApplicationController
   
   #indexアクション
   def index
@@ -7,17 +7,20 @@ class FamilyboardsController < ApplicationController
   
   #newアクション
   def new
-    @familyboard = Familyboard.new
+    @familyboard = current_user.familyboards.new
+    @family = Family.find_by(id: params[:family])
   end
   
   #createアクション
   def create
     @familyboard = current_user.familyboards.new(familyboard_params)
+    @family = Family.find_by(id: params[:family])
     #コメントの保存がうまくいかないため
-      binding.pry
+    binding.pry
   #コメントを書き込んで保存する際の処理
     if @familyboard.save
-      redirect_to familyboards_path, success: '投稿に成功しました'
+      @familyboard.family_id = family.id
+      redirect_to family_path(@family), success: '投稿に成功しました'
     else
   #失敗した際の処理
       flash.now[:alert] = '投稿に失敗しました'
@@ -28,7 +31,7 @@ class FamilyboardsController < ApplicationController
   
   private
   def familyboard_params
-    params.require(:familyboard).permit(:description)
+    params.require(:familyboard).permit(:family_id, :user_id, :description)
   end
   
 end

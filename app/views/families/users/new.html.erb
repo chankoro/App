@@ -1,3 +1,7 @@
+<%#トークンがnilでなければtokenを受け取る。%>
+<% if @token != nil %>
+    <%= hidden_field_tag :invite_token, @token %>
+<% end %>
 <div class="box">
   <div class="box-inner">
       <h1>ユーザー登録</h1>

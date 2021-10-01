@@ -1,0 +1,20 @@
+
+[1mFrom:[0m /home/ec2-user/environment/App/app/controllers/familyboards_controller.rb:22 FamilyboardsController#create:
+
+    [1;34m15[0m: [32mdef[0m [1;34mcreate[0m
+    [1;34m16[0m:   @family = [1;34;4mFamily[0m.find_by([35mid[0m: params[[33m:family_id[0m])
+    [1;34m17[0m:   @familyboard = current_user.familyboards.new(familyboard_params)
+    [1;34m18[0m:   @familyboard.family_id = params[[33m:family_id[0m]
+    [1;34m19[0m:   [1;34m#コメントの保存がうまくいかないため[0m
+    [1;34m20[0m:   binding.pry
+    [1;34m21[0m: [1;34m#コメントを書き込んで保存する際の処理[0m
+ => [1;34m22[0m:   [32mif[0m @familyboard.save
+    [1;34m23[0m:     redirect_to familyboards_path, [35msuccess[0m: [31m[1;31m'[0m[31m投稿に成功しました[1;31m'[0m[31m[0m
+    [1;34m24[0m:   [32melse[0m
+    [1;34m25[0m: [1;34m#失敗した際の処理[0m
+    [1;34m26[0m:     flash.now[[33m:alert[0m] = [31m[1;31m'[0m[31m投稿に失敗しました[1;31m'[0m[31m[0m
+    [1;34m27[0m:     render [35maction[0m: [33m:new[0m
+    [1;34m28[0m:     [1;34m#newページへ戻る[0m
+    [1;34m29[0m:   [32mend[0m
+    [1;34m30[0m: [32mend[0m
+
