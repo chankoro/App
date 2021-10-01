@@ -8,6 +8,7 @@
          <div class="form-group">
            <%= f.label :コメント %>
            <%= f.text_area :description, class: 'form-control' %>
+           <%= f.hidden_field :family_id, value: @family_id %>
          </div>
          <%= f.submit '投　稿', class: 'btn btn-black btn-block' %>
        <% end %>

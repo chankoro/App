@@ -7,19 +7,19 @@ class Families::FamilyboardsController < ApplicationController
   
   #newアクション
   def new
-    @familyboard = current_user.familyboards.new
-    @family = Family.find_by(id: params[:family])
+    @family = current_user.family
+    @familyboard = @family.familyboards.new
   end
   
   #createアクション
   def create
-    @familyboard = current_user.familyboards.new(familyboard_params)
-    @family = Family.find_by(id: params[:family])
-    #コメントの保存がうまくいかないため
     binding.pry
+    @family = Family.find(params[:family])
+    @familyboard = @family.familyboards.new(familyboard_params)
+    #コメントの保存がうまくいかないため
+
   #コメントを書き込んで保存する際の処理
     if @familyboard.save
-      @familyboard.family_id = family.id
       redirect_to family_path(@family), success: '投稿に成功しました'
     else
   #失敗した際の処理
