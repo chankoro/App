@@ -36,6 +36,7 @@ class Families::HouseworksController < ApplicationController
   
   def show
     @family = current_user.family
+    @housework[:user_id] = current_user.id
     @housework =@family.houseworks.new
   end
  

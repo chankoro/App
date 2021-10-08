@@ -12,6 +12,7 @@
              <%= familyboard.description %>
            </p>
          </div>
+         <%= link_to "削除", family_familyboard_path(@family,familyboard), method: :delete %>
        </div>
      </div>
     <% end %>

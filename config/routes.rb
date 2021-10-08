@@ -22,9 +22,9 @@ Rails.application.routes.draw do
   resources :families, only: %i[show edit] do
   resources :users, only: %i[new create show destroy], module: "families"
   #家事モデル
-  resources :houseworks, only: %i[new create show destroy], module: "families"
+  resources :houseworks, only: %i[new create show index edit destroy], module: "families"
   #掲示板モデル
-  resources :familyboards, only: %i[new create show destroy], module: "families"
+  resources :familyboards, only: %i[new create show index edit destroy], module: "families"
   end
   
   resources :users, only: %i[new create show destroy] do

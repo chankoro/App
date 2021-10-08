@@ -1,8 +1,10 @@
 class Families::FamilyboardsController < ApplicationController
+  protect_from_forgery
   
   #indexアクション
   def index
-    @familyboards = Familyboard.all
+    @family = current_user.family
+    @familyboards = @family.familyboards.all
   end
   
   #newアクション
@@ -21,13 +23,25 @@ class Families::FamilyboardsController < ApplicationController
 
   #コメントを書き込んで保存する際の処理
     if @familyboard.save
-      redirect_to family_path(@family), success: '投稿に成功しました'
+      redirect_to family_familyboard_path(@family,@familyboard), success: '投稿に成功しました'
     else
   #失敗した際の処理
       flash.now[:alert] = '投稿に失敗しました'
       render action: :new
       #newページへ戻る
     end
+  end
+  
+  def show
+    @family = current_user.family
+    @familyboards[:user_id] = current_user.id
+  end
+  
+  def destroy
+    familyboard = Familyboard.find(params[:id])
+    binding.pry 
+    familyboard.destroy
+    redirect_to family_familyboards_path(@family,@familyboard)
   end
   
   private
