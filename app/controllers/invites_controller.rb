@@ -1,6 +1,6 @@
 class InvitesController < ApplicationController
   #招待メールを送信する前にトークンを作成させる。 
-  before_create :generate_token
+  before_action :generate_token
 
 #メールを登録しているユーザーに招待メールを送らないようにする。
   before_save :check_user_existence

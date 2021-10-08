@@ -1,7 +1,7 @@
 <h1> 家事登録リスト</h1>
 
 <div class="container">
- <div class-"row">
+ <div class="row">
 <%#表の形の指定%>
 <table class="table">
  <%#上に表示する見出しみたいなの%>
@@ -63,13 +63,13 @@
         <% end %>
     </td>
        </div>
-    <td><%= link_to "編集", edit_family_housework_path(@family,@housework) %></td>
-    <td><td><%= link_to "削除", housework_path(housework), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+    <td><%= link_to "編集", edit_family_housework_path(@family,housework) %></td>
+    <td><td><%= link_to "削除", family_housework_path(@family,housework), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
    </tr>
   <% end %>
   </tbody>
  </table>
  <br>
- <%= link_to "登録", new_housework_path, class: "btn btn-primary" %>
- <%= link_to "週間予定へ", houseworks_show_path %>
+ <%= link_to "登録", new_family_housework_path(@family,housework), class: "btn btn-primary" %>
+ <%= link_to "週間予定へ", family_houseworks_path(@family,housework) %>
 </div>

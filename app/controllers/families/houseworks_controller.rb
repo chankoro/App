@@ -25,7 +25,7 @@ class Families::HouseworksController < ApplicationController
      if @housework.valid? 
 #家事を保存する
      if @housework.save
-       redirect_to family_path(@family)
+       redirect_to family_path(@family,@housework)
        flash[:notice] = "家事作成に成功しました"
      else
        flash.now[:alert] = "家事作成に失敗しました"
@@ -37,7 +37,6 @@ class Families::HouseworksController < ApplicationController
   def show
     @family = current_user.family
     @housework[:user_id] = current_user.id
-    @housework =@family.houseworks.new
   end
  
   #編集、編集するために対象のidを拾ってくる。
