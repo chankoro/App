@@ -6,5 +6,6 @@ class Family < ApplicationRecord
   has_many :users, dependent: :destroy
   has_many :houseworks, through: :users
   has_many :familyboards
+  has_many :invites
   accepts_nested_attributes_for :users
 end

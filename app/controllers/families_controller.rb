@@ -11,6 +11,10 @@ class FamiliesController < ApplicationController
     @token = params[:invite_token]
   end
   
+  def edit
+    @invite = Invite.new
+  end
+  
   def create
    @newUser = build_user(user_params)
    @newUser.save
@@ -40,6 +44,3 @@ class FamiliesController < ApplicationController
   end
 end
 
-def edit
-    @invite = Invite.new
-end

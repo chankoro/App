@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
  
+ if Rails.env.development?
+   mount LetterOpenerWeb::Engine, at: "letter_opener"
+ end
+ 
   root "pages#index"
   
   get 'sessions/new'
@@ -17,18 +21,16 @@ Rails.application.routes.draw do
   #家族idを作ってからのユーザーおよび家族情報
   resources :families, only: %i[show edit] do
   resources :users, only: %i[new create show destroy], module: "families"
-  end
-  
-  resources :users, only: %i[new create show destroy]
-  
-  #家事モデルのresource
-  resources :families, only: %i[show edit] do
+  #家事モデル
   resources :houseworks, only: %i[new create show destroy], module: "families"
+  #掲示板モデル
+  resources :familyboards, only: %i[new create show destroy], module: "families"
   end
   
-  #家族掲示板モデル
-  resources :families, only: %i[show edit] do
-  resources :familyboards, only: %i[new create show destroy], module: "families"
+  resources :users, only: %i[new create show destroy] do
+    collection do
+      get :invites
+    end
   end
   
   #招待機能モデル

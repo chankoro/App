@@ -11,19 +11,21 @@ class Families::HouseworksController < ApplicationController
   
   #new.viewと共有
   def new
-    @housework = current_user.houseworks.new
-    @family = Family.find_by(id: params[:family])
+    @family = current_user.family
+    @housework = @family.houseworks.new
+    @housework[:user_id] = current_user.id
   end
   
   
   def create
 #ログインしているユーザーのみ作成できるのでcurrent_userを入れている。
-    @housework = current_user.houseworks.new(housework_params)
-    @family = Family.find_by(id: params[:family])
-     if @housework.valid?
+    @family = Family.find(params[:family_id])
+    @housework = @family.houseworks.new(housework_params)
+    @housework[:user_id] = current_user.id
+     if @housework.valid? 
+#家事を保存する
      if @housework.save
-       @housework.family_id = housework.id
-       redirect_to houseworks_path(@family)
+       redirect_to family_path(@family)
        flash[:notice] = "家事作成に成功しました"
      else
        flash.now[:alert] = "家事作成に失敗しました"
@@ -33,7 +35,8 @@ class Families::HouseworksController < ApplicationController
   end
   
   def show
-    @houseworks = Housework.all
+    @family = current_user.family
+    @housework =@family.houseworks.new
   end
  
   #編集、編集するために対象のidを拾ってくる。

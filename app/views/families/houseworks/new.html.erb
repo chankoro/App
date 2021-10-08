@@ -3,6 +3,7 @@
 <% form_for モデルオブジェクト do |f| %>
 
  <%= form_with model: [@family,@housework], url:family_houseworks_path do |f| %>
+ <%= f.hidden_field :family_id, value: @family_id %>
 
 <%# 家事の内容を把握するためにタイトルを入れる。f.text_fieldで入力フォームの作成 %>
  <%= f.label :title %>

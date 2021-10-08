@@ -65,7 +65,11 @@ Rails.application.configure do
   
   #メール送信時にエラーを表示させる。
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.deliver_method = :smtp
+  #メール送信機能はletter_openerで送信
+  config.action_mailer.deliver_method = :letter_opener
+  #メールを実際に配信する
+  config.action_mailer.perform_delivers = true
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.smtp_settings = {
     port:                    587,
     address:                 'smtp.gmail.com',

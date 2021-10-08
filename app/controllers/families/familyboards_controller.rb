@@ -13,9 +13,10 @@ class Families::FamilyboardsController < ApplicationController
   
   #createアクション
   def create
-    binding.pry
-    @family = Family.find(params[:family])
+    @family = Family.find(params[:family_id])
     @familyboard = @family.familyboards.new(familyboard_params)
+    @familyboard[:user_id] = current_user.id
+    # @familyboard.user = current_user
     #コメントの保存がうまくいかないため
 
   #コメントを書き込んで保存する際の処理
@@ -31,7 +32,7 @@ class Families::FamilyboardsController < ApplicationController
   
   private
   def familyboard_params
-    params.require(:familyboard).permit(:family_id, :user_id, :description)
+    params.require(:familyboard).permit(:user_id, :description)
   end
   
 end
