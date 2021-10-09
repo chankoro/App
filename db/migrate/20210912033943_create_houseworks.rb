@@ -6,8 +6,8 @@
      t.integer :user_id
      t.datetime :time
      t.string :note
-     t.datetime :created_at 
-     t.datetime :updated_at 
+     t.datetime :create
+     t.datetime :updated
      t.timestamps        
     end
     
