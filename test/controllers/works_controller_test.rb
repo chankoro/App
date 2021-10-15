@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class HouseworkTest < ActiveSupport::TestCase
+class WorksControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

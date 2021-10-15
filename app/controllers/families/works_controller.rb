@@ -1,31 +1,31 @@
-class Families::HouseworksController < ApplicationController
+class Families::WorksController < ApplicationController
   
   protect_from_forgery
   
   def index
   #新規登録用に取得
-     @housework = Housework.new
+     @work = Work.new
   #一覧画面ですべてが見れるように全部取得
-     @houseworks = Housework.all
+     @works = Work.all
   end
   
   #new.viewと共有
   def new
     @family = current_user.family
-    @housework = @family.houseworks.new
-    @housework[:user_id] = current_user.id
+    @work = @family.works.new
+    @work[:user_id] = current_user.id
   end
   
   
   def create
 #ログインしているユーザーのみ作成できるのでcurrent_userを入れている。
     @family = Family.find(params[:family_id])
-    @housework = @family.houseworks.new(housework_params)
-    @housework[:user_id] = current_user.id
-     if @housework.valid? 
+    @work = @family.works.new(work_params)
+    @work[:user_id] = current_user.id
+     if @work.valid? 
 #家事を保存する
-     if @housework.save
-       redirect_to family_path(@family,@housework)
+     if @work.save
+       redirect_to family_path(@family,@work)
        flash[:notice] = "家事作成に成功しました"
      else
        flash.now[:alert] = "家事作成に失敗しました"
@@ -36,32 +36,32 @@ class Families::HouseworksController < ApplicationController
   
   def show
     @family = current_user.family
-    @housework[:user_id] = current_user.id
+    @work[:user_id] = current_user.id
   end
  
   #編集、編集するために対象のidを拾ってくる。
   def edit
-    @housework = Housework.find(params[:id])
+    @work = Work.find(params[:id])
   end
   
   #更新
   def update
-    @housework = Housework.find(params[:id])
-    @housework.update(housework_params)
-    redirect_to housework_path(housework_params)
+    @work = Work.find(params[:id])
+    @Work.update(work_params)
+    redirect_to work_path(work_params)
   end
   
   #削除機能
   def destroy
-    housework = Housework.find(params[:id])
-    housework.destroy
-    redirect_to houseworks_path
+    work = Work.find(params[:id])
+    work.destroy
+    redirect_to works_path
   end
   
   #ストロングパラメータで作業名を表す:title,更新時間を表す:time,メモを残す:note,曜日:wday
   private
-    def housework_params
-    params.require(:housework).permit(:family_id,:user_id,:title,:time,:note,:monday,:tuesday,:wednesday,:thursday,:friday,:saturday,:sunday)
+    def work_params
+    params.require(:work).permit(:family_id,:user_id,:title,:time,:note,:monday,:tuesday,:wednesday,:thursday,:friday,:saturday,:sunday)
     
     end
     

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "edit", to: "user_sessions#edit"
   get "show", to: "users#show"
   
-  get "houseworks/show", to: "houseworks#show"
+  get "works/show", to: "works#show"
   
   # #家族idを作る前のユーザー情報
   # resources :users, only: %i[new create show destroy]
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :families, only: %i[show edit] do
   resources :users, only: %i[new create show destroy], module: "families"
   #家事モデル
-  resources :houseworks, only: %i[new create show index edit destroy], module: "families"
+  resources :works, only: %i[new create show index edit destroy], module: "families"
   #掲示板モデル
   resources :familyboards, except: %i[edit update], module: "families"
   end
