@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   protect_from_forgery :except => ["destroy","logout"]
   #未ログインをはじくようにする。
-  skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_login, only: [:new, :create, :invite]
   # GET /users or /users.json
  #form_forでUserに紐づいたformを作成したいのでUserをインスタンス変数に保存させる。
   def new
@@ -49,6 +49,9 @@ class UsersController < ApplicationController
      redirect_to user_path(user_params)
  end
 
+ def invite
+ end
+ 
   private #ストロングパラメーターでpassとpass confirm
   def user_params
     params.require(:user).permit(:family_id, :name, :email, :password, :password_confirmation)

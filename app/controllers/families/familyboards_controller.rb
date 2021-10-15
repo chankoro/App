@@ -3,8 +3,7 @@ class Families::FamilyboardsController < ApplicationController
   
   #indexアクション
   def index
-    @family = current_user.family
-    @familyboards = @family.familyboards.all
+    @familyboards = current_user.family.familyboards.all
   end
   
   #newアクション
@@ -15,7 +14,7 @@ class Families::FamilyboardsController < ApplicationController
   
   #createアクション
   def create
-    @family = Family.find(params[:family_id])
+    @family = current_user.family
     @familyboard = @family.familyboards.new(familyboard_params)
     @familyboard[:user_id] = current_user.id
     # @familyboard.user = current_user
@@ -33,20 +32,21 @@ class Families::FamilyboardsController < ApplicationController
   end
   
   def show
-    @family = current_user.family
-    @familyboards[:user_id] = current_user.id
+    # @family = current_user.family
+    # binding.pry
+    # @familyboards[:user_id] = current_user.id
+    @familyboards = current_user.family.familyboards.all
   end
   
   def destroy
     familyboard = Familyboard.find(params[:id])
-    binding.pry 
     familyboard.destroy
-    redirect_to family_familyboards_path(@family,@familyboard)
+    redirect_to family_familyboards_path
   end
   
   private
   def familyboard_params
-    params.require(:familyboard).permit(:user_id, :description)
+    params.require(:familyboard).permit(:family_id, :user_id, :description)
   end
   
 end

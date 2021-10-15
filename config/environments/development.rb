@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :letter_opener_web
   config.action_mailer.perform_deliveries = true
 
   config.hosts << "8fd8f12b4ebc43e3a455edb4a051d089.vfs.cloud9.us-east-2.amazonaws.com"
@@ -52,9 +52,9 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   #edit画面でCannot render console from 114.150.213.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
   #Processing by HouseworksController#edit as HTML　が表示されたため追記
-  # config.web_console.whitelisted_ips = "114.150.213.2"
+  config.web_console.whitelisted_ips = "114.150.213.2"
   #メール送信時にエラーを表示させる。
-  # config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = true
   # config.action_mailer.deliver_method = :smtp
   # config.action_mailer.smtp_settings = {
   #   port: 587,

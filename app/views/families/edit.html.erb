@@ -1,7 +1,7 @@
 <%#招待メールフォーム%>
-<%= form_for @invite , :url => invites_path do |f| %>
+<%= form_for @invite , url: invites_path do |f| %>
 <%#ユーザーが直接family_idを入力しなくていいようにinviteモデルにfamily_idを渡す%>
- <%= f.hidden_field :family_id, :value => @invite.family_id %>
+ <%= f.hidden_field :family_id,  value: current_user.family_id %>
 <%#送信フォーム%>
  <%= f.label :email %>
  <%= f.email_field :email %>

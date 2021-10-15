@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   #家事モデル
   resources :houseworks, only: %i[new create show index edit destroy], module: "families"
   #掲示板モデル
-  resources :familyboards, only: %i[new create show index edit destroy], module: "families"
+  resources :familyboards, except: %i[edit update], module: "families"
   end
   
   resources :users, only: %i[new create show destroy] do
@@ -31,4 +31,10 @@ Rails.application.routes.draw do
   
   #招待機能モデル
   resources :invites
+  
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
+  end
+
 end
+

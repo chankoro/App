@@ -56,6 +56,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   #招待メール送信機能
+  gem 'letter_opener_web'
 end
 
 group :test do
