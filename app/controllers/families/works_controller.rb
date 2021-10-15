@@ -3,10 +3,8 @@ class Families::WorksController < ApplicationController
   protect_from_forgery
   
   def index
-  #新規登録用に取得
-     @work = Work.new
-  #一覧画面ですべてが見れるように全部取得
-     @works = Work.all
+    #一覧画面ですべてが見れるように全部取得
+  　 @works = current_user.family.works.all
   end
   
   #new.viewと共有
@@ -19,13 +17,13 @@ class Families::WorksController < ApplicationController
   
   def create
 #ログインしているユーザーのみ作成できるのでcurrent_userを入れている。
-    @family = Family.find(params[:family_id])
+    @family = current_user.family
     @work = @family.works.new(work_params)
     @work[:user_id] = current_user.id
      if @work.valid? 
 #家事を保存する
      if @work.save
-       redirect_to family_path(@family,@work)
+       redirect_to family_work_path(@family,@work)
        flash[:notice] = "家事作成に成功しました"
      else
        flash.now[:alert] = "家事作成に失敗しました"
@@ -35,8 +33,9 @@ class Families::WorksController < ApplicationController
   end
   
   def show
-    @family = current_user.family
-    @work[:user_id] = current_user.id
+    # @family = current_user.family
+    # @work[:user_id] = current_user.id
+    @works = current_user.family.works.all
   end
  
   #編集、編集するために対象のidを拾ってくる。
@@ -48,14 +47,14 @@ class Families::WorksController < ApplicationController
   def update
     @work = Work.find(params[:id])
     @Work.update(work_params)
-    redirect_to work_path(work_params)
+    redirect_to family_work_path(works_path)
   end
   
   #削除機能
   def destroy
     work = Work.find(params[:id])
     work.destroy
-    redirect_to works_path
+    redirect_to family_works_path
   end
   
   #ストロングパラメータで作業名を表す:title,更新時間を表す:time,メモを残す:note,曜日:wday
