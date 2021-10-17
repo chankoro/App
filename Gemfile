@@ -74,3 +74,5 @@ gem 'jquery-rails'
 gem 'sorcery'
 
 gem "letter_opener"
+
+gem "sidekiq-scheduler"

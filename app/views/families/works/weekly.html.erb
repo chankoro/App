@@ -6,7 +6,7 @@
      <tr>完了ボタン<tr>
 　 </thead>
 　 <tbody>
-　  <% @works.each do |housework| %>
+　  <% @works.each do |work| %>
 　   <tr>
       <% if work.monday == true %>
        <td><%= work.title %></td>
@@ -124,6 +124,6 @@
      </tr>
    </tbody>
  </table>
-
-<%= link_to "家事登録一覧へ",works_path, class: "btn btn-primary"%>
+<%#family_works_pathで/families/:family_id/works(.:format)だから@familyのみ %>
+<%= link_to "家事登録一覧へ",family_works_path(@family), class: "btn btn-primary"%>
 <%# 日付を表示させる。%>

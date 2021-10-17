@@ -16,7 +16,11 @@ Rails.application.routes.draw do
   resources :families, only: %i[show edit] do
   resources :users, only: %i[new create show destroy], module: "families"
   #家事モデル
-  resources :works, only: %i[new create show index edit destroy], module: "families"
+  resources :works, module: "families" do
+    collection do
+      get :weekly
+    end
+  end
   #掲示板モデル
   resources :familyboards, except: %i[edit update], module: "families"
   end

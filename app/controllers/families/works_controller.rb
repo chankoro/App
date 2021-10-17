@@ -3,8 +3,9 @@ class Families::WorksController < ApplicationController
   protect_from_forgery
   
   def index
+    @family = current_user.family
     #一覧画面ですべてが見れるように全部取得
-  　 @works = current_user.family.works.all
+    @works = current_user.family.works.all
   end
   
   #new.viewと共有
@@ -23,7 +24,7 @@ class Families::WorksController < ApplicationController
      if @work.valid? 
 #家事を保存する
      if @work.save
-       redirect_to family_work_path(@family,@work)
+       redirect_to family_works_path(@family)
        flash[:notice] = "家事作成に成功しました"
      else
        flash.now[:alert] = "家事作成に失敗しました"
@@ -37,14 +38,21 @@ class Families::WorksController < ApplicationController
     # @work[:user_id] = current_user.id
     @works = current_user.family.works.all
   end
+  
+  def weekly
+    @family = current_user.family
+    @works = current_user.family.works.all
+  end
  
   #編集、編集するために対象のidを拾ってくる。
   def edit
+    @family = current_user.family
     @work = Work.find(params[:id])
   end
   
   #更新
   def update
+    @family = current_user.family
     @work = Work.find(params[:id])
     @Work.update(work_params)
     redirect_to family_work_path(works_path)
