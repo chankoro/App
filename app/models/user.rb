@@ -18,4 +18,5 @@ class User < ApplicationRecord
 #user modelの下にhouseworks modelとfamilyboard modelが存在する。
   has_many :works
   has_many :familyboards
+  has_many :user_statuse
 end
