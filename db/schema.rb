@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_15_211112) do
+ActiveRecord::Schema.define(version: 2021_10_20_062503) do
 
   create_table "families", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -36,6 +36,22 @@ ActiveRecord::Schema.define(version: 2021_10_15_211112) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "status"
+    t.datetime "done"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "status_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_user_statuses_on_status_id"
+    t.index ["user_id"], name: "index_user_statuses_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -45,6 +61,15 @@ ActiveRecord::Schema.define(version: 2021_10_15_211112) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "work_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "work_id"
+    t.bigint "status_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_work_statuses_on_status_id"
+    t.index ["work_id"], name: "index_work_statuses_on_work_id"
   end
 
   create_table "works", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -66,4 +91,8 @@ ActiveRecord::Schema.define(version: 2021_10_15_211112) do
     t.boolean "sunday", default: false, null: false
   end
 
+  add_foreign_key "user_statuses", "statuses"
+  add_foreign_key "user_statuses", "users"
+  add_foreign_key "work_statuses", "statuses"
+  add_foreign_key "work_statuses", "works"
 end

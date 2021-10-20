@@ -1,0 +1,2 @@
+class UserStatuse < ApplicationRecord
+end

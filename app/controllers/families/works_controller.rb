@@ -12,7 +12,6 @@ class Families::WorksController < ApplicationController
   def new
     @family = current_user.family
     @work = @family.works.new
-    @work[:user_id] = current_user.id
   end
   
   
@@ -21,6 +20,7 @@ class Families::WorksController < ApplicationController
     @family = current_user.family
     @work = @family.works.new(work_params)
     @work[:user_id] = current_user.id
+    binding.pry
      if @work.valid? 
 #家事を保存する
      if @work.save

@@ -4,6 +4,8 @@ authenticates_with_sorcery!
 #モデルはfamily,user,houseworkの順
 belongs_to :user
 has_one :family, through: :user
+has_many :work_statuses
+accepts_nested_attributes_for :work_statuses
 
 #user_idと記述をvalidate
 validates :user_id, presence: true
@@ -20,7 +22,7 @@ with_options inclusion: {in: [true, false]} do
 end
 
 #曜日カラムが必ず選択されるようにする。
-#〇曜日が空だったらを全曜日に当てはめる。
+
 validate :checked
 
 def checked
