@@ -11,9 +11,11 @@
       <% if work.monday == true %>
        <td><%= work.title %></td>
       <% end %>
-       <td></td>
+       <td><%= button_to 'Done' , statuses_family_works_path(@family),method: :post %></td>
     <% end %>
      </tr>
+     <tr>
+    </tr>
    </tbody>
  </table>
 
