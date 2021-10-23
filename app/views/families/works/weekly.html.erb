@@ -11,7 +11,14 @@
       <% if work.monday == true %>
        <td><%= work.title %></td>
       <% end %>
-       <td><%= button_to 'Done' , statuses_family_works_path(@family),method: :post %></td>
+       <td>
+        <% if work.done_by %>
+        <p><%= work.done_by %></p>
+        <p><%= work.done_at %></p>
+        <% else %>
+        <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+        <% end %>
+        </td>
     <% end %>
      </tr>
    </tbody>

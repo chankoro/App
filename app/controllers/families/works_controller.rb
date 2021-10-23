@@ -3,8 +3,6 @@ class Families::WorksController < ApplicationController
   protect_from_forgery
   
   def index
-    @family = current_user.family
-    #一覧画面ですべてが見れるように全部取得
     @works = current_user.family.works.all
   end
   
@@ -63,6 +61,14 @@ class Families::WorksController < ApplicationController
     work = Work.find(params[:id])
     work.destroy
     redirect_to family_works_path
+  end
+  
+  def done
+    @work = Work.find(params[:id])
+    @work.done_by = current_user.id
+    @work.done_at = Time.now
+    @work.save
+    redirect_to weekly_family_works_path(params[:family_id])
   end
   
   #ストロングパラメータで作業名を表す:title,更新時間を表す:time,メモを残す:note,曜日:wday

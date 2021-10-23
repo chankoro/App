@@ -19,8 +19,9 @@ Rails.application.routes.draw do
   resources :works, module: "families" do
     collection do
       get :weekly
-      get 'statuses/index'
-      post '/statuses', to: 'statuses#create'
+    end
+    member do
+     post :done
     end
   end
   #掲示板モデル

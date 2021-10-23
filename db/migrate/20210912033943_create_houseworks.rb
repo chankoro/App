@@ -4,13 +4,10 @@
      t.string :title, null: false
      t.integer :family_id
      t.integer :user_id
-     t.datetime :time
      t.string :note
-     t.datetime :create
-     t.datetime :updated
+     t.integer :done_by
+     t.datetime :done_at
      t.timestamps        
     end
-    
   end
-  
-end
+ end

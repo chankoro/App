@@ -2,10 +2,8 @@ class Work < ApplicationRecord
 authenticates_with_sorcery!
 #houseworkは個人で登録し家族で共有する。
 #モデルはfamily,user,houseworkの順
-belongs_to :user
+belongs_to :user, class_name: 'User' , foreign_key: :done_by
 has_one :family, through: :user
-has_many :work_statuses
-accepts_nested_attributes_for :work_statuses
 
 #user_idと記述をvalidate
 validates :user_id, presence: true
