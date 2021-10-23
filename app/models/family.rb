@@ -7,5 +7,6 @@ class Family < ApplicationRecord
   has_many :works, through: :users
   has_many :familyboards
   has_many :invites
+  has_many :statuses
   accepts_nested_attributes_for :users
 end
