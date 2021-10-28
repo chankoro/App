@@ -19,7 +19,7 @@ class Families::WorksController < ApplicationController
     @work = @family.works.new(work_params)
     @work.user = current_user
     @work[:user_id] = current_user.id
-
+    # @work[:done_by] = nil
 # 家事を保存する
      if @work.save
        redirect_to family_works_path(@family)
@@ -28,6 +28,7 @@ class Families::WorksController < ApplicationController
        flash.now[:alert] = "家事作成に失敗しました"
        render :new
      end
+    # binding.pry
   end
   
   def show
