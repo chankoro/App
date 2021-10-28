@@ -17,17 +17,16 @@ class Families::WorksController < ApplicationController
 #ログインしているユーザーのみ作成できるのでcurrent_userを入れている。
     @family = current_user.family
     @work = @family.works.new(work_params)
+    @work.user = current_user
     @work[:user_id] = current_user.id
-    # binding.pry
-     if @work.valid? 
-#家事を保存する
+
+# 家事を保存する
      if @work.save
        redirect_to family_works_path(@family)
        flash[:notice] = "家事作成に成功しました"
      else
        flash.now[:alert] = "家事作成に失敗しました"
        render :new
-     end
      end
   end
   
