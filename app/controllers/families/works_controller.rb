@@ -46,16 +46,24 @@ class Families::WorksController < ApplicationController
   def edit
     @family = current_user.family
     @work = Work.find(params[:id])
+    Rails.logger.debug "@work : #{@work.inspect}"
+      # binding.pry
   end
   
   #更新
   def update
+    # binding.pry
     @family = current_user.family
     @work = Work.find(params[:id])
-    @Work.update(work_params)
-    redirect_to family_work_path(works_path)
-  end
-  
+    Rails.logger.debug "@work : #{@work.inspect}"
+    if @work.update(work_params)
+      redirect_to family_works_path(@family)
+    else
+      flash.now[:danger] = "更新に失敗しました"
+      render :edit
+    end
+  end 
+   
   #削除機能
   def destroy
     work = Work.find(params[:id])
@@ -86,4 +94,4 @@ class Families::WorksController < ApplicationController
   　 @wday = ["月","火","水","木","金","土","日"]
     end
      
-  end
+end

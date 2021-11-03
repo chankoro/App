@@ -12,12 +12,13 @@
        <td><%= work.title %></td>
       <% end %>
        <td>
-        <% if work.done_by %>
-        <p><%= work.done_by %></p>
+                <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+        <!--<% if work.done_by %>-->
+        <p><%= work.done_by%></p>
         <p><%= work.done_at %></p>
-        <% else %>
+        <!--<% else %>-->
         <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
-        <% end %>
+        <!--<% end %>-->
         </td>
     <% end %>
      </tr>
@@ -36,7 +37,15 @@
       <% if work.tuesday == true %>
        <td><%= work.title %></td>
       <% end %>
-       <td></td>
+         <td>
+                <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+        <!--<% if work.done_by %>-->
+        <p><%= work.done_by%></p>
+        <p><%= work.done_at %></p>
+        <!--<% else %>-->
+        <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+        <!--<% end %>-->
+        </td>
     <% end %>
      </tr>
    </tbody>
@@ -54,7 +63,15 @@
       <% if work.wednesday == true %>
        <td><%= work.title %></td>
       <% end %>
-       <td></td>
+        <td>
+                <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+        <!--<% if work.done_by %>-->
+        <p><%= work.done_by%></p>
+        <p><%= work.done_at %></p>
+        <!--<% else %>-->
+        <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+        <!--<% end %>-->
+        </td>
     <% end %>
      </tr>
    </tbody>
@@ -72,7 +89,15 @@
       <% if work.thursday == true %>
        <td><%= work.title %></td>
       <% end %>
-       <td></td>
+        <td>
+                <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+        <!--<% if work.done_by %>-->
+        <p><%= work.done_by%></p>
+        <p><%= work.done_at %></p>
+        <!--<% else %>-->
+        <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+        <!--<% end %>-->
+        </td>
     <% end %>
      </tr>
    </tbody>
@@ -90,8 +115,15 @@
       <% if work.friday == true %>
        <td><%= work.title %></td>
       <% end %>
-       <td></td>
-    <% end %>
+         <td>
+                <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+        <!--<% if work.done_by %>-->
+        <p><%= work.done_by%></p>
+        <p><%= work.done_at %></p>
+        <!--<% else %>-->
+        <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+        <!--<% end %>-->
+        </td>
      </tr>
    </tbody>
  </table>
@@ -108,7 +140,15 @@
       <% if work.saturday == true %>
        <td><%= work.title %></td>
       <% end %>
-       <td></td>
+        <td>
+                <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+        <!--<% if work.done_by %>-->
+        <p><%= work.done_by%></p>
+        <p><%= work.done_at %></p>
+        <!--<% else %>-->
+        <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+        <!--<% end %>-->
+        </td>
     <% end %>
      </tr>
    </tbody>
@@ -126,7 +166,15 @@
       <% if work.sunday == true %>
        <td><%= work.title %></td>
       <% end %>
-       <td></td>
+        <td>
+                <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+        <!--<% if work.done_by %>-->
+        <p><%= work.done_by%></p>
+        <p><%= work.done_at %></p>
+        <!--<% else %>-->
+        <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+        <!--<% end %>-->
+        </td>
     <% end %>
      </tr>
    </tbody>
