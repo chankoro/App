@@ -19,7 +19,6 @@ class Families::WorksController < ApplicationController
     @work = @family.works.new(work_params)
     @work.user = current_user
     @work[:user_id] = current_user.id
-    # @work[:done_by] = nil
 # 家事を保存する
      if @work.save
        redirect_to family_works_path(@family)
@@ -28,12 +27,9 @@ class Families::WorksController < ApplicationController
        flash.now[:alert] = "家事作成に失敗しました"
        render :new
      end
-    # binding.pry
   end
   
   def show
-    # @family = current_user.family
-    # @work[:user_id] = current_user.id
     @works = current_user.family.works.all
   end
   
@@ -47,12 +43,10 @@ class Families::WorksController < ApplicationController
     @family = current_user.family
     @work = Work.find(params[:id])
     Rails.logger.debug "@work : #{@work.inspect}"
-      # binding.pry
   end
   
   #更新
   def update
-    # binding.pry
     @family = current_user.family
     @work = Work.find(params[:id])
     Rails.logger.debug "@work : #{@work.inspect}"

@@ -1,6 +1,7 @@
 Rails.application.configure do
-  config.action_mailer.delivery_method = :letter_opener_web
-  config.action_mailer.perform_deliveries = true
+  # config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  # config.action_mailer.delivery_method = :letter_opener_web
+  # config.action_mailer.perform_deliveries = true
 
   config.hosts << "8fd8f12b4ebc43e3a455edb4a051d089.vfs.cloud9.us-east-2.amazonaws.com"
   host = "localhost"
@@ -55,14 +56,14 @@ Rails.application.configure do
   config.web_console.whitelisted_ips = "114.150.213.2"
   #メール送信時にエラーを表示させる。
   config.action_mailer.raise_delivery_errors = true
-  # config.action_mailer.deliver_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   port: 587,
-  #   address: "smtp.gmail.com",
-  #   domain: "gmail.com",
-  #   user_name: "rails first",
-  #   password: "12345678910Ab!",
-  #   authentication: "login",
-  #   enable_starttls_auto: true,
-  # }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port: 587,
+    address: 'smtp.gmail.com',
+    domain: 'gmail.com',
+    user_name: 'appdevelop199@gmail.com',
+    password: 'qabairetpiiuildi',
+    authentication: 'login',
+    enable_starttls_auto: true,
+  }
 end
