@@ -14,7 +14,7 @@
        <td>
                 <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
         <!--<% if work.done_by %>-->
-        <p><%= work.done_by%></p>
+        <p><%= work.user.name%></p>
         <p><%= work.done_at %></p>
         <!--<% else %>-->
         <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
@@ -124,6 +124,7 @@
         <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
         <!--<% end %>-->
         </td>
+        <% end %>
      </tr>
    </tbody>
  </table>

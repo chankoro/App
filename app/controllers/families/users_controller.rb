@@ -4,10 +4,13 @@ protect_from_forgery :except => ["destroy","logout"]
 def new
   @family = current_user.family
   @user = @family.users.new
+  @token = params[:invite_token]
 end
 
 def create
-  @family = Family.find(params[:family_id])
+  # @family = Family.find(params[:family_id])
+  # binding.pry
+  @family = Invite.find_by(token: params[:user][:invite_token]).family
   @user = @family.users.new(user_params)
   
   if @user.save
@@ -21,7 +24,7 @@ end
 
 private #ストロングパラメーターでpassとpass confirm
   def user_params
-    params.require(:user).permit(:family_id, :name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
   
 end
