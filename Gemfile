@@ -74,6 +74,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 gem 'sorcery'
 
-gem "letter_opener"
+gem 'letter_opener'
 
-gem "sidekiq-scheduler"
+gem 'sidekiq-scheduler'
+
+#エラー表示
+gem 'rails-i18n'

@@ -17,5 +17,6 @@ module Housework
     
     #招待メールのトークンに時間を使用するため。
     config.time_zone = 'Tokyo'
+    config.i18n.default_locale = :ja
   end
 end
