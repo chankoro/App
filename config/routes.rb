@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get 'login', to: "user_sessions#new"
   post 'login', to: "user_sessions#create"
   delete '/logout',  to: "user_sessions#destroy", as: :logout
-  get "edit", to: "user_sessions#edit"
   get "show", to: "users#show"
   
   # #家族idを作る前のユーザー情報
@@ -14,7 +13,7 @@ Rails.application.routes.draw do
   
   #家族idを作ってからのユーザーおよび家族情報
   resources :families, only: %i[show edit] do
-  resources :users, only: %i[new create show destroy], module: "families"
+  resources :users, only: %i[new create show destroy edit update], module: "families"
   #家事モデル
   resources :works, module: "families" do
     collection do
@@ -28,7 +27,7 @@ Rails.application.routes.draw do
   resources :familyboards, except: %i[edit update], module: "families"
   end
   
-  resources :users, only: %i[new create show destroy] do
+  resources :users, only: %i[new create show destroy edit] do
     collection do
       get :invites
     end

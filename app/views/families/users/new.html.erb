@@ -1,9 +1,18 @@
+<%# エラーメッセージの表示 %>
+<% if @user.errors.any? %>
+ <div id="error_explanation" class="alert alert-danger">
+  <ul>
+   <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+   <% end %>
+  </ul>
+ </div>
+<% end %>
 <div class="box">
   <div class="box-inner">
-      <h1>ユーザー登録(サブ)</h1>
+      <h1>ユーザー登録(家族登録)</h1>
       <%= form_with model: [@family,@user], url: family_users_path, local: true do |f| %>
-       <!--<%= f.hidden_field :family_id, value: @family.id %>-->
-         <%= f.hidden_field :invite_token, value: @token %>
+         <%= f.hidden_field :invite_token, value: @token %>  
         <div class="box-name">
           <%= f.label :name %>
           <%= f.text_field :name, class: 'form-control' %>
@@ -14,6 +23,7 @@
         </div>
         <div class="box-password">
           <%= f.label :password %>
+          <p>4文字～20文字</p>
           <%= f.password_field :password, class: 'form-control' %>
         </div>
         <div class="box-password">

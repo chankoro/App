@@ -42,14 +42,12 @@ class Families::WorksController < ApplicationController
   def edit
     @family = current_user.family
     @work = Work.find(params[:id])
-    Rails.logger.debug "@work : #{@work.inspect}"
   end
   
   #更新
   def update
     @family = current_user.family
     @work = Work.find(params[:id])
-    Rails.logger.debug "@work : #{@work.inspect}"
     if @work.update(work_params)
       redirect_to family_works_path(@family)
     else

@@ -21,6 +21,16 @@ def create
     render :new
   end
 end
+  
+def show
+  @family = current_user.family
+  @user = current_user
+  user[:id] = current_user.id
+end
+
+def edit
+  @family = current_user.family
+end
 
 private #ストロングパラメーターでpassとpass confirm
   def user_params

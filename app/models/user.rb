@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :sent_invites, class_name: "Invite", foreign_key: "sender_id"
 
 #if: -> { new_record? || changes[:crypted_password] }でユーザーがパスワード以外のプロフィール項目更新の時にパスワード入力を省略できる
-  validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
+  validates :password, length: { in: 4..20 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 

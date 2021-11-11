@@ -18,13 +18,8 @@
 <%#登録ページに飛ぶようにlinkを入れる。users/newにとぶ。%>
       <%= link_to '登録ページへ', new_user_path %>
     </div>
-     <div class='text-center'>
-      <%= link_to 'パスワードを忘れた方はこちら','#' %>
-    </div>
-    </div>
   </div>
 </div>
 
 <% #ログインのフォームに関してはモデルと紐づかない（「ログイン/セッション」とういリソースに紐づくという考え方）%>
 <% #だからform_with model:@userではなくフォームの送信先が/loginになるようにurl: login_pathにした %>
-
