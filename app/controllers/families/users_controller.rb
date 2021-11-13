@@ -8,11 +8,8 @@ def new
 end
 
 def create
-  # @family = Family.find(params[:family_id])
-  # binding.pry
   @family = Invite.find_by(token: params[:user][:invite_token]).family
   @user = @family.users.new(user_params)
-  
   if @user.save
     redirect_to family_path(@family)
     flash[:notice] = "ユーザー作成に成功しました"

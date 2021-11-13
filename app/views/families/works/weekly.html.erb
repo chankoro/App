@@ -2,184 +2,294 @@
 <%#週ごとの表示をするのでテーブルにする。%>
  <table class = table>
    <thead>
-     <tr>やること<tr>
-     <tr>完了ボタン<tr>
-　 </thead>
+    <tr>
+    <div class="col-xs-offset-1 col-xs-2">
+    <th>やること</th>
+    </div>
+     <div class="col-xs-1">
+      <th>完了ボタン</th>
+     </div>
+      <div class="col-xs-2 col-xs-offset-2">
+       <th>やった人</th>
+      </div>
+       <div class="col-xs-2 col-xs-offset-2">
+        <th>終了時間</th>
+       </div>
+      </tr>
+   </thead>
 　 <tbody>
 　  <% @works.each do |work| %>
 　   <tr>
       <% if work.monday == true %>
+     <div class="row">
+      <div class="col-xs-offset-1 col-xs-2">
        <td><%= work.title %></td>
+      </div>
+      <div class="col-xs-1">
+        <td><%= button_to 'Done' , done_family_work_path(@family,work),method: :post %></td>
+      </div>
+      <div class="col-xs-2 col-xs-offset-2">
+        <td><%= work.user.name %></td>
+      </div>
+      <div class="col-xs-2 col-xs-offset-2">
+        <td><%= work.done_at %></td>
+      </div>
       <% end %>
-       <td>
-                <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
-        <!--<% if work.done_by %>-->
-        <p><%= work.user.name%></p>
-        <p><%= work.done_at %></p>
-        <!--<% else %>-->
-        <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
-        <!--<% end %>-->
-        </td>
-    <% end %>
      </tr>
-   </tbody>
- </table>
-
+     <% end %>
+    </tbody>
+  </table>
+       <td>
+  
 <h1>火曜日</h1>
-<table class = table>
+ <table class = table>
    <thead>
-     <tr>やること<tr>
-     <tr>完了ボタン<tr>
-　 </thead>
+    <tr>
+    <div class="col-xs-offset-1 col-xs-2">
+    <th>やること</th>
+    </div>
+     <div class="col-xs-1">
+      <th>完了ボタン</th>
+     </div>
+      <div class="col-xs-2 col-xs-offset-2">
+       <th>やった人</th>
+      </div>
+       <div class="col-xs-2 col-xs-offset-2">
+        <th>終了時間</th>
+       </div>
+      </tr>
+   </thead>
 　 <tbody>
 　  <% @works.each do |work| %>
 　   <tr>
       <% if work.tuesday == true %>
+     <div class="row">
+      <div class="col-xs-offset-1 col-xs-2">
        <td><%= work.title %></td>
+      </div>
+      <div class="col-xs-1">
+        <td><%= button_to 'Done' , done_family_work_path(@family,work),method: :post %></td>
+      </div>
+      <div class="col-xs-2 col-xs-offset-2">
+        <td><%= work.user.name %></td>
+      </div>
+      <div class="col-xs-2 col-xs-offset-2">
+        <td><%= work.done_at %></td>
+      </div>
       <% end %>
-         <td>
-                <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
-        <!--<% if work.done_by %>-->
-        <p><%= work.done_by%></p>
-        <p><%= work.done_at %></p>
-        <!--<% else %>-->
-        <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
-        <!--<% end %>-->
-        </td>
-    <% end %>
      </tr>
-   </tbody>
-</table>
+     <% end %>
+    </tbody>
+  </table>
  
  <h1>水曜日</h1>
  <table class = table>
    <thead>
-     <tr>やること<tr>
-     <tr>完了ボタン<tr>
-　 </thead>
+    <tr>
+    <div class="col-xs-offset-1 col-xs-2">
+    <th>やること</th>
+    </div>
+     <div class="col-xs-1">
+      <th>完了ボタン</th>
+     </div>
+      <div class="col-xs-2 col-xs-offset-2">
+       <th>やった人</th>
+      </div>
+       <div class="col-xs-2 col-xs-offset-2">
+        <th>終了時間</th>
+       </div>
+      </tr>
+   </thead>
 　 <tbody>
 　  <% @works.each do |work| %>
 　   <tr>
       <% if work.wednesday == true %>
+     <div class="row">
+      <div class="col-xs-offset-1 col-xs-2">
        <td><%= work.title %></td>
+      </div>
+      <div class="col-xs-1">
+        <td><%= button_to 'Done' , done_family_work_path(@family,work),method: :post %></td>
+      </div>
+      <div class="col-xs-2 col-xs-offset-2">
+        <td><%= work.user.name %></td>
+      </div>
+      <div class="col-xs-2 col-xs-offset-2">
+        <td><%= work.done_at %></td>
+      </div>
       <% end %>
-        <td>
-                <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
-        <!--<% if work.done_by %>-->
-        <p><%= work.done_by%></p>
-        <p><%= work.done_at %></p>
-        <!--<% else %>-->
-        <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
-        <!--<% end %>-->
-        </td>
-    <% end %>
      </tr>
-   </tbody>
- </table>
- 
+     <% end %>
+    </tbody>
+  </table>
+
  <h1>木曜日</h1>
+ 
  <table class = table>
    <thead>
-     <tr>やること<tr>
-     <tr>完了ボタン<tr>
-　 </thead>
+    <tr>
+    <div class="col-xs-offset-1 col-xs-2">
+    <th>やること</th>
+    </div>
+     <div class="col-xs-1">
+      <th>完了ボタン</th>
+     </div>
+      <div class="col-xs-2 col-xs-offset-2">
+       <th>やった人</th>
+      </div>
+       <div class="col-xs-2 col-xs-offset-2">
+        <th>終了時間</th>
+       </div>
+      </tr>
+   </thead>
 　 <tbody>
 　  <% @works.each do |work| %>
 　   <tr>
       <% if work.thursday == true %>
+     <div class="row">
+      <div class="col-xs-offset-1 col-xs-2">
        <td><%= work.title %></td>
+      </div>
+      <div class="col-xs-1">
+        <td><%= button_to 'Done' , done_family_work_path(@family,work),method: :post %></td>
+      </div>
+      <div class="col-xs-2 col-xs-offset-2">
+        <td><%= work.user.name %></td>
+      </div>
+      <div class="col-xs-2 col-xs-offset-2">
+        <td><%= work.done_at %></td>
+      </div>
       <% end %>
-        <td>
-                <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
-        <!--<% if work.done_by %>-->
-        <p><%= work.done_by%></p>
-        <p><%= work.done_at %></p>
-        <!--<% else %>-->
-        <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
-        <!--<% end %>-->
-        </td>
-    <% end %>
      </tr>
-   </tbody>
- </table>
+     <% end %>
+    </tbody>
+  </table>
  
  <h1>金曜日</h1>
  <table class = table>
    <thead>
-     <tr>やること<tr>
-     <tr>完了ボタン<tr>
-　 </thead>
+    <tr>
+    <div class="col-xs-offset-1 col-xs-2">
+    <th>やること</th>
+    </div>
+     <div class="col-xs-1">
+      <th>完了ボタン</th>
+     </div>
+      <div class="col-xs-2 col-xs-offset-2">
+       <th>やった人</th>
+      </div>
+       <div class="col-xs-2 col-xs-offset-2">
+        <th>終了時間</th>
+       </div>
+      </tr>
+   </thead>
 　 <tbody>
 　  <% @works.each do |work| %>
 　   <tr>
       <% if work.friday == true %>
+     <div class="row">
+      <div class="col-xs-offset-1 col-xs-2">
        <td><%= work.title %></td>
+      </div>
+      <div class="col-xs-1">
+        <td><%= button_to 'Done' , done_family_work_path(@family,work),method: :post %></td>
+      </div>
+      <div class="col-xs-2 col-xs-offset-2">
+        <td><%= work.user.name %></td>
+      </div>
+      <div class="col-xs-2 col-xs-offset-2">
+        <td><%= work.done_at %></td>
+      </div>
       <% end %>
-         <td>
-                <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
-        <!--<% if work.done_by %>-->
-        <p><%= work.done_by%></p>
-        <p><%= work.done_at %></p>
-        <!--<% else %>-->
-        <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
-        <!--<% end %>-->
-        </td>
-        <% end %>
      </tr>
-   </tbody>
- </table>
- 
+     <% end %>
+    </tbody>
+  </table>
+
  <h1>土曜日</h1>
+ 
  <table class = table>
    <thead>
-     <tr>やること<tr>
-     <tr>完了ボタン<tr>
-　 </thead>
+    <tr>
+    <div class="col-xs-offset-1 col-xs-2">
+    <th>やること</th>
+    </div>
+     <div class="col-xs-1">
+      <th>完了ボタン</th>
+     </div>
+      <div class="col-xs-2 col-xs-offset-2">
+       <th>やった人</th>
+      </div>
+       <div class="col-xs-2 col-xs-offset-2">
+        <th>終了時間</th>
+       </div>
+      </tr>
+   </thead>
 　 <tbody>
 　  <% @works.each do |work| %>
 　   <tr>
       <% if work.saturday == true %>
+     <div class="row">
+      <div class="col-xs-offset-1 col-xs-2">
        <td><%= work.title %></td>
+      </div>
+      <div class="col-xs-1">
+        <td><%= button_to 'Done' , done_family_work_path(@family,work),method: :post %></td>
+      </div>
+      <div class="col-xs-2 col-xs-offset-2">
+        <td><%= work.user.name %></td>
+      </div>
+      <div class="col-xs-2 col-xs-offset-2">
+        <td><%= work.done_at %></td>
+      </div>
       <% end %>
-        <td>
-                <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
-        <!--<% if work.done_by %>-->
-        <p><%= work.done_by%></p>
-        <p><%= work.done_at %></p>
-        <!--<% else %>-->
-        <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
-        <!--<% end %>-->
-        </td>
-    <% end %>
      </tr>
-   </tbody>
- </table>
+     <% end %>
+    </tbody>
+  </table>
  
  <h1>日曜日</h1>
+ 
  <table class = table>
    <thead>
-     <tr>やること<tr>
-     <tr>完了ボタン<tr>
-　 </thead>
+    <tr>
+    <div class="col-xs-offset-1 col-xs-2">
+    <th>やること</th>
+    </div>
+     <div class="col-xs-1">
+      <th>完了ボタン</th>
+     </div>
+      <div class="col-xs-2 col-xs-offset-2">
+       <th>やった人</th>
+      </div>
+       <div class="col-xs-2 col-xs-offset-2">
+        <th>終了時間</th>
+       </div>
+      </tr>
+   </thead>
 　 <tbody>
 　  <% @works.each do |work| %>
 　   <tr>
       <% if work.sunday == true %>
+     <div class="row">
+      <div class="col-xs-offset-1 col-xs-2">
        <td><%= work.title %></td>
+      </div>
+      <div class="col-xs-1">
+        <td><%= button_to 'Done' , done_family_work_path(@family,work),method: :post %></td>
+      </div>
+      <div class="col-xs-2 col-xs-offset-2">
+        <td><%= work.user.name %></td>
+      </div>
+      <div class="col-xs-2 col-xs-offset-2">
+        <td><%= work.done_at %></td>
+      </div>
       <% end %>
-        <td>
-                <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
-        <!--<% if work.done_by %>-->
-        <p><%= work.done_by%></p>
-        <p><%= work.done_at %></p>
-        <!--<% else %>-->
-        <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
-        <!--<% end %>-->
-        </td>
-    <% end %>
      </tr>
-   </tbody>
- </table>
+     <% end %>
+    </tbody>
+  </table>
+
 <%#family_works_pathで/families/:family_id/works(.:format)だから@familyのみ %>
 <%= link_to "家事登録一覧へ",family_works_path(@family), class: "btn btn-primary"%>
 <%# 日付を表示させる。%>

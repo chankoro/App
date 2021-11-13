@@ -1,12 +1,11 @@
 class InvitesController < ApplicationController
   def create
-    # binding.pry
     @invite = Invite.new(invite_params)
     @invite.sender_id = current_user.id
      if @invite.save
-      url = new_family_user_url(invite_token: @invite.token)
-      InviteMailer.new_user_invite(invite: @invite, url: url).deliver
       @family = current_user.family
+      url = new_family_user_url(invite_token: @invite.token,family_id: @family)
+      InviteMailer.new_user_invite(invite: @invite, url: url).deliver
       redirect_to family_path(@family)
       flash.now[:success] = "送信に成功しました"
      else

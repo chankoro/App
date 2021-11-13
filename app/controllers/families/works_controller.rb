@@ -50,6 +50,7 @@ class Families::WorksController < ApplicationController
     @work = Work.find(params[:id])
     if @work.update(work_params)
       redirect_to family_works_path(@family)
+      flash[:notice] = "更新に成功しました"
     else
       flash.now[:danger] = "更新に失敗しました"
       render :edit

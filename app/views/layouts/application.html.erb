@@ -2,25 +2,24 @@
 <html>
   <head>
     <title>App</title>
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application" %>
     <%= csp_meta_tag %>
+        <%= csrf_meta_tags %>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
 <body>
  <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
  <% end %>
- <p id="notice"><%= flash[:notice] %></p>
- <p id="alert"><%= flash[:alert] %></p>
 <%#ナビゲーション機能%>
- <nav class="navbar navbar-default navbar-fixed-topnavbar-transparent">
+ <nav class="navbar navbar-default navbar-fixed-topnavbar-transparent p-1">
     <div class= "container">
      <ul class="nav navbar-nav navbar-right">
    <%#ログイン済みのユーザーの場合%>
       <% if logged_in? %>
-       <li>
-        <%= link_to "家族ページへ", family_path(current_user.family) %>
+       <li><%= link_to "家族ページへ", family_path(current_user.family) %>
        </li>
        <li>
         <%= link_to "Edit Profile", :show %>
@@ -44,6 +43,12 @@
 
     
     <%= yield %>
+    
+ <script>
+ $(function(){
+    $(".alert").fadeOut(5000);
+ });
+ </script>
 
   </body>
 </html>

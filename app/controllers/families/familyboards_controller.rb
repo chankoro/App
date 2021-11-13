@@ -32,9 +32,6 @@ class Families::FamilyboardsController < ApplicationController
   end
   
   def show
-    # @family = current_user.family
-    # binding.pry
-    # @familyboards[:user_id] = current_user.id
     @familyboards = current_user.family.familyboards.all
   end
   

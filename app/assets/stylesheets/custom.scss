@@ -1,3 +1,12 @@
+//全体のアラート表示//
+.alert {
+  margin-bottom: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+}
+
+
 //pages/indexのCSS
 h1, {
   font-weight: 100;
@@ -47,8 +56,9 @@ h1, {
     color: #fff !important;
   }
   
-  img {
-    height: 40px;
+  .navbar-brand {
+    padding: 0px;
+    margin-top: 15px;
   }
 }
 
@@ -141,13 +151,6 @@ h1 {
   background: #f0c14b;
 }
 
-.alert {
-  margin-bottom: 0px;
-  position: fixed;
-  width: 100%;
-  z-index: 10000;
-}
-
 .top-container{
   width: 100vw;
   height: 100vh;
@@ -212,4 +215,26 @@ h1 {
   
    }
  }
+}
+
+//家族ページ//
+h2, {
+  text-align:center;
+} 
+
+.user_box, {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #474747;
+  background: whitesmoke;/*背景色*/
+  border-left: double 7px #4ec4d3;/*左線*/
+  border-right: double 7px #4ec4d3;/*右線*/ 
+}
+
+.menu_box, {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #232323;
+    background: #fff8e8;
+    border-left: solid 10px #ffc06e;
 }
