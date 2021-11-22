@@ -1,13 +1,13 @@
-<div class="familyboards-new-wrapper">
+<div class="screen-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-xs-6 col-xs-offset-3">
+      <div class="col-xs-offset-2 col-xs-8 col-xs-offset-2">
   <h1 class="text-center">家事登録</h1>
 <%# houseworkの登録フォームを作るために form_forを使う。>
 <% form_for モデルオブジェクト do |f| %>
  <%= form_with model: [@family,@work], url: family_works_path, local: true do |f| %>
 　<%= f.hidden_field :family_id, value: @family_id %>
-
+　<div class="text-center">
 <%# 家事の内容を把握するためにタイトルを入れる。f.text_fieldで入力フォームの作成 %>
  <%= f.label :"タイトル" %>
   <div class="form-group">
@@ -29,8 +29,9 @@
   </div>
   <%= f.submit '決　定' %>
  <% end %>
- 
+  </div>
  <%= link_to "家事一覧", family_works_path(@family.id,@work) %>
+
  </div>
  </div>
  </div>

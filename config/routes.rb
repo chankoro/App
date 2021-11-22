@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :familyboards, except: %i[edit update], module: "families"
   end
   
-  resources :users, only: %i[new create show destroy edit] do
+  resources :users, except: [:index] do
     collection do
       get :invites
     end

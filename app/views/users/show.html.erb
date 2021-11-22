@@ -1,16 +1,27 @@
  <div class="box">
   <div class="box-inner">
   <%#User登録情報を出すために%>
+  <h1>登録情報</h1>
+  <div class="box-name">
+  <p>ユーザー名</p>
   <%= @user.name %>
+  </div>
+  <div class="box-email">
+   <p>メールアドレス</p>
   <%= @user.email %>
+  </div>
   <div class="box-submit">
     <div class='text-center'>
     <%# user_session/newに戻る。%>
-    <%= link_to '戻る', new_user_path %>
+    <%= link_to '戻る', family_path(current_user.family) %>
+  　</div>
+  </div>
+   <div class="box-submit">
+    <div class='text-center'>
+    <%# user_session/newに戻る。%>
     <%= link_to '更新ページへ', edit_user_path(@user) %>
   　</div>
- <%# <% @users.each do |user|>% の処理のend %>
   </div>
-  </div>
+    </div>
   </div>
   

@@ -1,9 +1,18 @@
 <%#招待メールフォーム%>
-<%= form_for @invite , url: invites_path do |f| %>
-<%#ユーザーが直接family_idを入力しなくていいようにinviteモデルにfamily_idを渡す%>
- <%= f.hidden_field :family_id,  value: current_user.family_id %>
-<%#送信フォーム%>
- <%= f.label :email %>
- <%= f.email_field :email %>
- <%= f.submit '送　信' %>
-<% end %>
+<div class="box">
+  <div class="box-inner">
+      <h1>招待メールの送信</h1>
+       <%= form_for @invite , url: invites_path do |f| %>
+       <%#ユーザーが直接family_idを入力しなくていいようにinviteモデルにfamily_idを渡す%>
+       <%= f.hidden_field :family_id,  value: current_user.family_id %>
+       <%#送信フォーム%>
+        <div class="box-email">
+         <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-contorol' %>
+        </div>
+        <div class="box-submit">
+         <%= f.submit '送　信', class: 'btn btn-primary' %>
+        </div>
+       <% end %>
+  </div>
+ </div>

@@ -10,8 +10,9 @@ class User < ApplicationRecord
   validates :password, length: { in: 4..20 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
-
-  validates :email, presence: true, uniqueness: true
+  
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true,format:{ with: VALID_EMAIL_REGEX }, uniqueness: true
 
 #Family modelの下にUser modelが存在する。
   belongs_to :family, optional: true
