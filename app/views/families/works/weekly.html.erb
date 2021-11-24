@@ -26,7 +26,14 @@
        <td><%= work.title %></td>
       </div>
       <div class="col-xs-1">
-        <td><%= button_to 'Done' , done_family_work_path(@family,work),method: :post %></td>
+        <td>
+         <% if work.done_by %>
+          <%= image_tag 'checkbox.png' %>
+          <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+         <% else %>
+          <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+         <% end %>
+        </td>
       </div>
       <div class="col-xs-2 col-xs-offset-2">
         <td><%= work.user.name %></td>
@@ -68,7 +75,14 @@
        <td><%= work.title %></td>
       </div>
       <div class="col-xs-1">
-        <td><%= button_to 'Done' , done_family_work_path(@family,work),method: :post %></td>
+        <td>
+         <% if work.done_by %>
+          <%= image_tag 'checkbox.png' %>
+          <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+         <% else %>
+          <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+         <% end %>
+        </td>
       </div>
       <div class="col-xs-2 col-xs-offset-2">
         <td><%= work.user.name %></td>
@@ -109,7 +123,14 @@
        <td><%= work.title %></td>
       </div>
       <div class="col-xs-1">
-        <td><%= button_to 'Done' , done_family_work_path(@family,work),method: :post %></td>
+       <td>
+         <% if work.done_by %>
+          <%= image_tag 'checkbox.png' %>
+          <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+         <% else %>
+          <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+         <% end %>
+       </td>
       </div>
       <div class="col-xs-2 col-xs-offset-2">
         <td><%= work.user.name %></td>
@@ -151,7 +172,14 @@
        <td><%= work.title %></td>
       </div>
       <div class="col-xs-1">
-        <td><%= button_to 'Done' , done_family_work_path(@family,work),method: :post %></td>
+       <td>
+         <% if work.done_by %>
+          <%= image_tag 'checkbox.png' %>
+          <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+         <% else %>
+          <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+         <% end %>
+       </td>
       </div>
       <div class="col-xs-2 col-xs-offset-2">
         <td><%= work.user.name %></td>
@@ -192,7 +220,14 @@
        <td><%= work.title %></td>
       </div>
       <div class="col-xs-1">
-        <td><%= button_to 'Done' , done_family_work_path(@family,work),method: :post %></td>
+      <td>
+         <% if work.done_by %>
+          <%= image_tag 'checkbox.png' %>
+          <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+         <% else %>
+          <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+         <% end %>
+       </td>
       </div>
       <div class="col-xs-2 col-xs-offset-2">
         <td><%= work.user.name %></td>
@@ -234,7 +269,14 @@
        <td><%= work.title %></td>
       </div>
       <div class="col-xs-1">
-        <td><%= button_to 'Done' , done_family_work_path(@family,work),method: :post %></td>
+     <td>
+      <% if work.done_by %>
+       <%= image_tag 'checkbox.png' %>
+       <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+      <% else %>
+       <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+      <% end %>
+     </td>
       </div>
       <div class="col-xs-2 col-xs-offset-2">
         <td><%= work.user.name %></td>
@@ -276,8 +318,15 @@
        <td><%= work.title %></td>
       </div>
       <div class="col-xs-1">
-        <td><%= button_to 'Done' , done_family_work_path(@family,work),method: :post %></td>
-      </div>
+       <td>
+        <% if work.done_by %>
+         <%= image_tag 'checkbox.png' %>
+         <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+        <% else %>
+         <%= button_to 'Done' , done_family_work_path(@family,work),method: :post %>
+        <% end %>
+       </td>
+       </div>
       <div class="col-xs-2 col-xs-offset-2">
         <td><%= work.user.name %></td>
       </div>

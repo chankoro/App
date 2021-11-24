@@ -47,13 +47,9 @@ h1, {
   }
 }
 
-ヘッダーのメニューバー
-.nav navbar-right {
-  display: contents
-  // background-color: rgba(0,0,0,0.5);
-  a {
-    color: #fff !important;
-  }
+// ヘッダーのメニューバー
+.nav {
+  display: contents;
 }
 
 // 画面後ろのcss
