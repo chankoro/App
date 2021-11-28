@@ -4,8 +4,16 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one: 
+  title: "最初の家事"
+  family_id: 1
+  user_id: 1
+  time: <%= 5.day.ago.to_s(:db) %>
+  note: "ノート"
+  monday: true
+  tuesday: true
+  wednesday: false
+  thursday: false
+  friday: false
+  saturday: false
+  sunday: false

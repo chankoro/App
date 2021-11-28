@@ -1,47 +1,40 @@
 require "application_system_test_case"
 
 class UsersTest < ApplicationSystemTestCase
-  setup do
-    @user = users(:one)
+ test "rootページにアクセスできる" do
+    visit root_path
+    click_on "Sign in"
+    assert_text("App")
   end
 
-  test "visiting the index" do
-    visit users_url
-    assert_selector "h1", text: "Users"
+  test "新規登録というリンクがある" do
+    visit root_path
+    click_on "Sign in"
+    assert_text("新規登録")
   end
 
-  test "creating a User" do
-    visit users_url
-    click_on "New User"
-
-    fill_in "Crypted password", with: @user.crypted_password
-    fill_in "Email", with: @user.email
-    fill_in "Salt", with: @user.salt
-    click_on "Create User"
-
-    assert_text "User was successfully created"
-    click_on "Back"
+  test "新規登録をクリックするとユーザー登録ページにいける" do
+    visit root_path
+    click_on "新規登録"
+    assert_equal(current_path, new_user_path)
   end
 
-  test "updating a User" do
-    visit users_url
-    click_on "Edit", match: :first
-
-    fill_in "Crypted password", with: @user.crypted_password
-    fill_in "Email", with: @user.email
-    fill_in "Salt", with: @user.salt
-    click_on "Update User"
-
-    assert_text "User was successfully updated"
-    click_on "Back"
+  test "新規登録ができる" do
+    visit new_user_path
+    fill_in("user[family]", with: "テスト")
+    fill_in("user[name]", with: "ネーム")
+    fill_in("user[email]", with: "example@example.com")
+    fill_in("user[password]", with: "PassworD1234")
+    fill_in("user[password_confirmation]", with: "PassworD1234")
+    page.save_screenshot "tmp/screenshots/#{Time.now.strftime("%Y%m%d%H%M%S%L")}.png"
+    click_on "登録"
+    page.save_screenshot "tmp/screenshots/#{Time.now.strftime("%Y%m%d%H%M%S%L")}.png"
+    assert_text("ユーザー作成に成功しました")
   end
 
-  test "destroying a User" do
-    visit users_url
-    page.accept_confirm do
-      click_on "Destroy", match: :first
-    end
-
-    assert_text "User was successfully destroyed"
+  test "Sign inページにいくとユーザー登録という文字が表示されている" do
+    visit root_path
+    click_on "Sign in"
+    assert_text("ユーザー登録")
   end
 end
