@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   delete '/logout',  to: "user_sessions#destroy", as: :logout
   get "show", to: "users#show"
   
+  #LineBot
+   post '/callback' => 'linebot#callback'
   # #家族idを作る前のユーザー情報
   # resources :users, only: %i[new create show destroy]
   
@@ -38,6 +40,7 @@ Rails.application.routes.draw do
   
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
+    mount Sidekiq::Web, at: '/sidkiq'
   end
 
 end

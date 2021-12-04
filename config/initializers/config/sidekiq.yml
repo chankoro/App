@@ -1,4 +1,0 @@
-:schedule:
-  done_by:
-    every: 2days
-    class: DonbyJob
