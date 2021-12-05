@@ -1,6 +1,6 @@
 :schedule:
   done_by:
-    every: 2days
+    every: 1m
     class: DonbyJob
   sample:
    every: 1m

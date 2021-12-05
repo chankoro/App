@@ -3,7 +3,7 @@ Rails.application.configure do
   # config.action_mailer.delivery_method = :letter_opener_web
   # config.action_mailer.perform_deliveries = true
 
-  config.hosts << "8fd8f12b4ebc43e3a455edb4a051d089.vfs.cloud9.us-east-2.amazonaws.com"
+  config.hosts << "55ed7eaf9c624a3fa97e7020127a7b55.vfs.cloud9.us-east-2.amazonaws.com"
   host = "localhost"
   Rails.application.routes.default_url_options[:host] = host
   # Settings specified here will take precedence over those in config/application.rb.
@@ -66,5 +66,4 @@ Rails.application.configure do
     authentication: 'login',
     enable_starttls_auto: true,
   }
-  # config.cache_store= :redis_store, 'redis://localhost:6379/0'
 end
