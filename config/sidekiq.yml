@@ -2,3 +2,6 @@
   done_by:
     every: 2days
     class: DonbyJob
+  sample:
+   every: 1m
+   class: SampleJob

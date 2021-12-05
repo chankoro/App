@@ -66,5 +66,5 @@ Rails.application.configure do
     authentication: 'login',
     enable_starttls_auto: true,
   }
-  config.cache_store= :redis_store, 'redis://localhost:6379/0'
+  # config.cache_store= :redis_store, 'redis://localhost:6379/0'
 end

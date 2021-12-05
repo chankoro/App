@@ -1,0 +1,20 @@
+# frozen_string_literal: true
+
+module Fugit
+
+  VERSION = '1.5.2'
+end
+
+require 'time'
+require 'stringio'
+
+require 'raabro'
+require 'et-orbi'
+
+require 'fugit/misc'
+require 'fugit/cron'
+require 'fugit/duration'
+require 'fugit/nat'
+require 'fugit/at'
+require 'fugit/parse'
+
