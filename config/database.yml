@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  atabase: housework_production
-  username: housework
-  password: <%= ENV['housework_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
