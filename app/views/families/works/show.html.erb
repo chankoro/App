@@ -1,26 +1,26 @@
 <div class="screen-wrapper">
-<div class="container">
- <div class="row">
-  <div  class="text-center">
-  <h1>家事登録リスト</h1>
-  </div>
+ <div class="container">
+  <div class="row">
+   <div  class="text-center">
+    <h1>家事登録リスト</h1>
+   </div>
 <%#表の形の指定%>
 <table class="table">
  <%#上に表示する見出しみたいなの%>
- <thead>
-  <tr>
-   <div class="col-xs-offset-2 col-xs-3">
-   <th>内　容</th>
-   </div>
-   <div class="col-xs-3">
-   <th>ノート</th>
-   </div>
+  <thead>
+   <tr>
+    <div class="col-xs-offset-2 col-xs-3">
+     <th>内　容</th>
+    </div>
+    <div class="col-xs-3">
+     <th>ノート</th>
+    </div>
    <div class="col-xs-2 col-xs-offset-2">
-   <th>曜　日</th>
+    <th>曜　日</th>
    </div>
-  </tr>
- </thead>
- </div>
+   </tr>
+  </thead>
+  </div>
  <%#テーブルの中身 %>
  <tbody>
    <% @works.each do |work| %>
@@ -69,10 +69,11 @@
     <td><td><%= link_to "削除", family_work_path(@family,work), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
    </tr>
   <% end %>
-  </tbody>
+ </tbody>
  </table>
  <br>
  <%= link_to "登録", new_family_work_path(@family), class: "btn btn-primary" %>
  <%= link_to "週間予定へ", weekly_family_works_path(@family) %>
-</div>
+   </div>
+ </div>
 </div>

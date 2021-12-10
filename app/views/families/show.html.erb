@@ -1,25 +1,21 @@
 <div class="screen-wrapper">
-<h2>家族一覧</h2>
- <div class ="row">
-  <div class="col-xs-offset-3 col-xs-6 col-xs-offset-3">
-   <div class = "user_box">
+ <h2>家族一覧</h2>
+  <div class ="row">
+   <div class="col-xs-offset-3 col-xs-6 col-xs-offset-3">
+    <div class = "user_box">
      <P>登録している人</p>
       <% @family_users.each do |family_users| %>
        <p><%= family_users.name%></p>
       <% end %>
-   </div>
+    </div>
  <h2>メニュー</h2>
- <!--<div class = "menu_box">-->
- <!-- <div class="btn-toolbar">-->
-   <div class="btn-group">
-    <ul id= "nav">
-　　<li><%= link_to "招待する" , edit_family_url(@family) %></li>
+  <div class="btn-group">
+   <ul id= "nav">
+　  <li><%= link_to "招待する" , edit_family_url(@family) %></li>
 　　<li><%= link_to "家族掲示板へ" , new_family_familyboard_path(@family) %></li>
 　　<li><%= link_to "家事へ" , new_family_work_path(@family) %></li>
-    </ul>
+   </ul>
+  </div>
    </div>
   </div>
- </div>
-  </div>
-<!-- </div>-->
-<!--</div>-->
+</div>

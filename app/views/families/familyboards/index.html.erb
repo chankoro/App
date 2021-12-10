@@ -4,17 +4,17 @@
     <% @familyboards.each do |familyboard| %>
      <div class ="row">
        <div class="col-xs-6 col-xs-offset-3">
-<div class="card">
-  <h5 class="card-header">投稿番号：<%= familyboard.id %></h5>
-  <div class="card-body">
-    <h5 class="card-title">投稿者：<%= familyboard.user.name %></h5>
-    <p class="card-text"> 時間：<%= familyboard.created_at %></p>
-    <p class="card-text"> 本文：<%= familyboard.description %></p>
-    <%= link_to "削除", family_familyboard_path(familyboard.family.id,familyboard.id), method: :delete, class: "btn btn-primary" %>
+        <div class="card">
+         <h5 class="card-header">投稿番号：<%= familyboard.id %></h5>
+          <div class="card-body">
+           <h5 class="card-title">投稿者：<%= familyboard.user.name %></h5>
+            <p class="card-text"> 時間：<%= familyboard.created_at %></p>
+             <p class="card-text"> 本文：<%= familyboard.description %></p>
+              <%= link_to "削除", family_familyboard_path(familyboard.family.id,familyboard.id), method: :delete, class: "btn btn-primary" %>
+          </div>
+    <% end %>
+        </div>
+      </div>
+     </div>
   </div>
-      <% end %>
-</div>
-</div>
-</div>
-</div>
 </div>
