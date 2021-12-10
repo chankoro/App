@@ -110,4 +110,16 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.session_store :redis_store, servers: ENV['redis://:p94f8e4a6fc3b2899b9f78e32cfd21694ada0fd8093f1e4a0354afe519e07877d@ec2-3-218-74-140.compute-1.amazonaws.com:10679'], expire_in: 1.week
+   #メール送信時にエラーを表示させる。
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port: 587,
+    address: 'smtp.gmail.com',
+    domain: 'gmail.com',
+    user_name: 'appdevelop199@gmail.com',
+    password: 'qabairetpiiuildi',
+    authentication: 'login',
+    enable_starttls_auto: true,
+  }
 end

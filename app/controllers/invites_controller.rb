@@ -4,6 +4,7 @@ class InvitesController < ApplicationController
     @invite.sender_id = current_user.id
      if @invite.save
       @family = current_user.family
+      binding.pry
       url = new_family_user_url(invite_token: @invite.token,family_id: @family)
       InviteMailer.new_user_invite(invite: @invite, url: url).deliver
       redirect_to family_path(@family)
