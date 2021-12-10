@@ -91,3 +91,5 @@ gem 'rails-i18n'
 
 #LINE API用
 gem 'line-bot-api'
+
+gem 'rails_12factor', group: :production
