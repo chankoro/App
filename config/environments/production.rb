@@ -109,5 +109,5 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  config.session_store :redis_store, servers: 'redis://localhost:6379/0', expire_in: 1.day
+  config.session_store :redis_store, servers: ENV['redis://:p94f8e4a6fc3b2899b9f78e32cfd21694ada0fd8093f1e4a0354afe519e07877d@ec2-3-218-74-140.compute-1.amazonaws.com:10679'], expire_in: 1.week
 end
