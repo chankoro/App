@@ -40,7 +40,7 @@ class Families::WorksController < ApplicationController
  
   #編集、編集するために対象のidを拾ってくる。
   def edit
-    @work = work.find(params[:id])
+    @work = Work.find(params[:id])
     @family = current_user.family
   end
   
