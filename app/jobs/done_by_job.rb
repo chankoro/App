@@ -1,8 +1,10 @@
 class DonebyJob < ApplicationJob
+    queue_as :default
   def perform
-    reset_work_done_by :enviromnment do
-    Work.update_all(done_by: false)
-    end
+    # (Workのすべてのdone_byを)
+    # Work.where(id: work_ids).update_all(done_by: false)
+    # Work.all.update_all(done_by: false)
+    puts "Donebyjob"
   end
   
 end

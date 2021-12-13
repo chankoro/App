@@ -4,6 +4,8 @@ Rails.application.configure do
   # config.action_mailer.perform_deliveries = true
 
   config.hosts << "55ed7eaf9c624a3fa97e7020127a7b55.vfs.cloud9.us-east-2.amazonaws.com"
+  #Line Botのため。ngrok起動のたびに要変更！
+  config.hosts << "df44-3-145-107-2.ngrok.io"
   host = "localhost"
   Rails.application.routes.default_url_options[:host] = host
   # Settings specified here will take precedence over those in config/application.rb.
@@ -61,8 +63,8 @@ Rails.application.configure do
     port: 587,
     address: 'smtp.gmail.com',
     domain: 'gmail.com',
-    user_name: 'appdevelop199@gmail.com',
-    password: 'qabairetpiiuildi',
+    user_name: ENV['USER_NAME'],
+    password: ENV['PASSWORD'],
     authentication: 'login',
     enable_starttls_auto: true,
   }

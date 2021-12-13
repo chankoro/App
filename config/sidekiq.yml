@@ -1,7 +1,8 @@
+:concurrency: 25
+:max_retries: 2
+:queues:
+  - default
 :schedule:
-  done_by:
-    every: 1m
-    class: DonbyJob
   sample:
    every: 1m
    class: SampleJob
