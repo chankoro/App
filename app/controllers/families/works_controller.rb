@@ -3,7 +3,7 @@ class Families::WorksController < ApplicationController
   protect_from_forgery
   
   def index
-    @works = current_user.family.works.all
+    @works = current_user.family.works
   end
   
   #new.viewと共有
@@ -40,8 +40,8 @@ class Families::WorksController < ApplicationController
  
   #編集、編集するために対象のidを拾ってくる。
   def edit
+    @work = work.find(params[:id])
     @family = current_user.family
-    @work = Work.find(params[:id])
   end
   
   #更新

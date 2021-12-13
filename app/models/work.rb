@@ -28,6 +28,6 @@ end
 #houseworkは個人で登録し家族で共有する。
 #モデルはfamily,user,houseworkの順
 belongs_to :user, class_name: 'User' , foreign_key: :done_by
-has_one :family, through: :user
+belongs_to :family 
 
 end

@@ -22,6 +22,7 @@
  <%#テーブルの中身 %>
  <tbody>
    <% @works.each do |work| %>
+   <% if work != nil %>
    <tr>
     <div class="row">
       <div class="col-xs-offset-2 col-xs-3">
@@ -64,8 +65,9 @@
     </td>
        </div>
     <td><%= link_to "編集", edit_family_work_path(work.family.id,work.id) %></td>
-    <td><td><%= link_to "削除", family_work_path(work.family.id,work.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+    <td><%= link_to "削除", family_work_path(work.family.id,work.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
    </tr>
+   <% end %>
   <% end %>
   </tbody>
  </table>

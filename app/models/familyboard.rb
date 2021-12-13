@@ -5,5 +5,5 @@ class Familyboard < ApplicationRecord
   validates :description, presence: true
   
  belongs_to :user
- has_one :family, through: :user
+ belongs_to :family
 end
